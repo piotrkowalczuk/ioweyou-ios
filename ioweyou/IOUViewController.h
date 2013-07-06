@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IOUViewController : UIViewController
+@interface IOUViewController : UIViewController {
+    
+}
+
+@property (retain, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) NSArray *results;
 
 @end

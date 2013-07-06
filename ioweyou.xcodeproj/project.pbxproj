@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3902CEA01788B98C007869D0 /* IOUEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3902CE9F1788B98C007869D0 /* IOUEntryCell.xib */; };
+		3902CEA71788BD46007869D0 /* IOUEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3902CEA61788BD46007869D0 /* IOUEntryCell.m */; };
 		392590C517887AF700ACF4F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392590C417887AF700ACF4F0 /* UIKit.framework */; };
 		392590C717887AF700ACF4F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392590C617887AF700ACF4F0 /* Foundation.framework */; };
 		392590C917887AF700ACF4F0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392590C817887AF700ACF4F0 /* CoreGraphics.framework */; };
@@ -18,9 +20,13 @@
 		392590DB17887AF800ACF4F0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 392590DA17887AF800ACF4F0 /* Default-568h@2x.png */; };
 		392590DE17887AF800ACF4F0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392590DC17887AF800ACF4F0 /* MainStoryboard.storyboard */; };
 		392590E117887AF800ACF4F0 /* IOUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392590E017887AF800ACF4F0 /* IOUViewController.m */; };
+		5946AB486A934D2DB091EA62 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5A7D482089473599E6CB6C /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3902CE9F1788B98C007869D0 /* IOUEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IOUEntryCell.xib; sourceTree = "<group>"; };
+		3902CEA51788BD46007869D0 /* IOUEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOUEntryCell.h; path = ioweyou/IOUEntryCell.h; sourceTree = "<group>"; };
+		3902CEA61788BD46007869D0 /* IOUEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IOUEntryCell.m; path = ioweyou/IOUEntryCell.m; sourceTree = "<group>"; };
 		392590C117887AF700ACF4F0 /* ioweyou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ioweyou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		392590C417887AF700ACF4F0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		392590C617887AF700ACF4F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -37,6 +43,8 @@
 		392590DD17887AF800ACF4F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		392590DF17887AF800ACF4F0 /* IOUViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOUViewController.h; sourceTree = "<group>"; };
 		392590E017887AF800ACF4F0 /* IOUViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOUViewController.m; sourceTree = "<group>"; };
+		514AEFE70E014041BE782685 /* Pods/Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		CD5A7D482089473599E6CB6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,18 +55,31 @@
 				392590C517887AF700ACF4F0 /* UIKit.framework in Frameworks */,
 				392590C717887AF700ACF4F0 /* Foundation.framework in Frameworks */,
 				392590C917887AF700ACF4F0 /* CoreGraphics.framework in Frameworks */,
+				5946AB486A934D2DB091EA62 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3902CEA11788BC34007869D0 /* EntryCell */ = {
+			isa = PBXGroup;
+			children = (
+				3902CE9F1788B98C007869D0 /* IOUEntryCell.xib */,
+				3902CEA51788BD46007869D0 /* IOUEntryCell.h */,
+				3902CEA61788BD46007869D0 /* IOUEntryCell.m */,
+			);
+			name = EntryCell;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		392590B817887AF700ACF4F0 = {
 			isa = PBXGroup;
 			children = (
 				392590CA17887AF700ACF4F0 /* ioweyou */,
 				392590C317887AF700ACF4F0 /* Frameworks */,
 				392590C217887AF700ACF4F0 /* Products */,
+				514AEFE70E014041BE782685 /* Pods/Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,6 +97,7 @@
 				392590C417887AF700ACF4F0 /* UIKit.framework */,
 				392590C617887AF700ACF4F0 /* Foundation.framework */,
 				392590C817887AF700ACF4F0 /* CoreGraphics.framework */,
+				CD5A7D482089473599E6CB6C /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,6 +105,7 @@
 		392590CA17887AF700ACF4F0 /* ioweyou */ = {
 			isa = PBXGroup;
 			children = (
+				3902CEA11788BC34007869D0 /* EntryCell */,
 				392590D317887AF700ACF4F0 /* IOUAppDelegate.h */,
 				392590D417887AF700ACF4F0 /* IOUAppDelegate.m */,
 				392590DC17887AF800ACF4F0 /* MainStoryboard.storyboard */,
@@ -114,9 +137,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 392590E417887AF800ACF4F0 /* Build configuration list for PBXNativeTarget "ioweyou" */;
 			buildPhases = (
+				E97BA679652A418F962B7699 /* Check Pods Manifest.lock */,
 				392590BD17887AF700ACF4F0 /* Sources */,
 				392590BE17887AF700ACF4F0 /* Frameworks */,
 				392590BF17887AF700ACF4F0 /* Resources */,
+				06093AD7741844C48573810C /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -164,10 +189,44 @@
 				392590D917887AF700ACF4F0 /* Default@2x.png in Resources */,
 				392590DB17887AF800ACF4F0 /* Default-568h@2x.png in Resources */,
 				392590DE17887AF800ACF4F0 /* MainStoryboard.storyboard in Resources */,
+				3902CEA01788B98C007869D0 /* IOUEntryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06093AD7741844C48573810C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E97BA679652A418F962B7699 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		392590BD17887AF700ACF4F0 /* Sources */ = {
@@ -177,6 +236,7 @@
 				392590D117887AF700ACF4F0 /* main.m in Sources */,
 				392590D517887AF700ACF4F0 /* IOUAppDelegate.m in Sources */,
 				392590E117887AF800ACF4F0 /* IOUViewController.m in Sources */,
+				3902CEA71788BD46007869D0 /* IOUEntryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +320,7 @@
 		};
 		392590E517887AF800ACF4F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 514AEFE70E014041BE782685 /* Pods/Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ioweyou/ioweyou-Prefix.pch";
@@ -271,6 +332,7 @@
 		};
 		392590E617887AF800ACF4F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 514AEFE70E014041BE782685 /* Pods/Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ioweyou/ioweyou-Prefix.pch";
@@ -299,6 +361,7 @@
 				392590E617887AF800ACF4F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
