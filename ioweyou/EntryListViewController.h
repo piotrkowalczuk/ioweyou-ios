@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IOUViewController : UIViewController {
+@interface EntryListViewController : UITableViewController {
     
 }
 

@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface IOUEntryCell : UITableViewCell
-@property (nonatomic, weak) IBOutlet UILabel *userName;
-@property (nonatomic, weak) IBOutlet UILabel *entryName;
-@property (nonatomic, weak) IBOutlet UILabel *date;
-@property (nonatomic, weak) IBOutlet UIImageView *userAvatar;
+@property (nonatomic, weak) IBOutlet UILabel *firstLine;
+@property (nonatomic, weak) IBOutlet UILabel *secondLine;
+@property (nonatomic, weak) IBOutlet UILabel *thirdLine;
+@property (nonatomic, weak) IBOutlet UIImageView *image;
+@property (nonatomic, weak) IBOutlet UILabel *rightLine;
 @end

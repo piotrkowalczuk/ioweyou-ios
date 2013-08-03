@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		3902CEA01788B98C007869D0 /* IOUEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3902CE9F1788B98C007869D0 /* IOUEntryCell.xib */; };
 		3902CEA71788BD46007869D0 /* IOUEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3902CEA61788BD46007869D0 /* IOUEntryCell.m */; };
+		3909D98A178B4C80005674BC /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3909D989178B4C80005674BC /* background.png */; };
+		39257D541789AE790011E1E1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39257D531789AE790011E1E1 /* FacebookSDK.framework */; };
+		39257D561789AE9C0011E1E1 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 39257D551789AE9C0011E1E1 /* FacebookSDKResources.bundle */; };
+		39257D5C1789AF370011E1E1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39257D571789AF370011E1E1 /* Accounts.framework */; };
+		39257D5D1789AF370011E1E1 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39257D581789AF370011E1E1 /* AdSupport.framework */; };
+		39257D5E1789AF370011E1E1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 39257D591789AF370011E1E1 /* libsqlite3.dylib */; };
+		39257D5F1789AF370011E1E1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39257D5A1789AF370011E1E1 /* Security.framework */; };
+		39257D601789AF370011E1E1 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39257D5B1789AF370011E1E1 /* Social.framework */; };
+		39257D631789B4480011E1E1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39257D621789B4480011E1E1 /* LoginViewController.m */; };
 		392590C517887AF700ACF4F0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392590C417887AF700ACF4F0 /* UIKit.framework */; };
 		392590C717887AF700ACF4F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392590C617887AF700ACF4F0 /* Foundation.framework */; };
 		392590C917887AF700ACF4F0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 392590C817887AF700ACF4F0 /* CoreGraphics.framework */; };
@@ -19,7 +28,8 @@
 		392590D917887AF700ACF4F0 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 392590D817887AF700ACF4F0 /* Default@2x.png */; };
 		392590DB17887AF800ACF4F0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 392590DA17887AF800ACF4F0 /* Default-568h@2x.png */; };
 		392590DE17887AF800ACF4F0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392590DC17887AF800ACF4F0 /* MainStoryboard.storyboard */; };
-		392590E117887AF800ACF4F0 /* IOUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392590E017887AF800ACF4F0 /* IOUViewController.m */; };
+		392590E117887AF800ACF4F0 /* EntryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392590E017887AF800ACF4F0 /* EntryListViewController.m */; };
+		3998B76217897EFA007AF346 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3998B76117897EFA007AF346 /* MenuViewController.m */; };
 		5946AB486A934D2DB091EA62 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5A7D482089473599E6CB6C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +37,16 @@
 		3902CE9F1788B98C007869D0 /* IOUEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IOUEntryCell.xib; sourceTree = "<group>"; };
 		3902CEA51788BD46007869D0 /* IOUEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOUEntryCell.h; path = ioweyou/IOUEntryCell.h; sourceTree = "<group>"; };
 		3902CEA61788BD46007869D0 /* IOUEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IOUEntryCell.m; path = ioweyou/IOUEntryCell.m; sourceTree = "<group>"; };
+		3909D989178B4C80005674BC /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		39257D531789AE790011E1E1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		39257D551789AE9C0011E1E1 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
+		39257D571789AF370011E1E1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		39257D581789AF370011E1E1 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		39257D591789AF370011E1E1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		39257D5A1789AF370011E1E1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		39257D5B1789AF370011E1E1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		39257D611789B4480011E1E1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		39257D621789B4480011E1E1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		392590C117887AF700ACF4F0 /* ioweyou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ioweyou.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		392590C417887AF700ACF4F0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		392590C617887AF700ACF4F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -41,8 +61,10 @@
 		392590D817887AF700ACF4F0 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		392590DA17887AF800ACF4F0 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		392590DD17887AF800ACF4F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		392590DF17887AF800ACF4F0 /* IOUViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOUViewController.h; sourceTree = "<group>"; };
-		392590E017887AF800ACF4F0 /* IOUViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOUViewController.m; sourceTree = "<group>"; };
+		392590DF17887AF800ACF4F0 /* EntryListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntryListViewController.h; sourceTree = "<group>"; };
+		392590E017887AF800ACF4F0 /* EntryListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntryListViewController.m; sourceTree = "<group>"; };
+		3998B76017897EFA007AF346 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		3998B76117897EFA007AF346 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		514AEFE70E014041BE782685 /* Pods/Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		CD5A7D482089473599E6CB6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -52,10 +74,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39257D5C1789AF370011E1E1 /* Accounts.framework in Frameworks */,
+				39257D5D1789AF370011E1E1 /* AdSupport.framework in Frameworks */,
+				39257D5E1789AF370011E1E1 /* libsqlite3.dylib in Frameworks */,
+				39257D5F1789AF370011E1E1 /* Security.framework in Frameworks */,
+				39257D601789AF370011E1E1 /* Social.framework in Frameworks */,
 				392590C517887AF700ACF4F0 /* UIKit.framework in Frameworks */,
 				392590C717887AF700ACF4F0 /* Foundation.framework in Frameworks */,
 				392590C917887AF700ACF4F0 /* CoreGraphics.framework in Frameworks */,
 				5946AB486A934D2DB091EA62 /* libPods.a in Frameworks */,
+				39257D541789AE790011E1E1 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +122,13 @@
 		392590C317887AF700ACF4F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39257D571789AF370011E1E1 /* Accounts.framework */,
+				39257D581789AF370011E1E1 /* AdSupport.framework */,
+				39257D591789AF370011E1E1 /* libsqlite3.dylib */,
+				39257D5A1789AF370011E1E1 /* Security.framework */,
+				39257D5B1789AF370011E1E1 /* Social.framework */,
+				39257D551789AE9C0011E1E1 /* FacebookSDKResources.bundle */,
+				39257D531789AE790011E1E1 /* FacebookSDK.framework */,
 				392590C417887AF700ACF4F0 /* UIKit.framework */,
 				392590C617887AF700ACF4F0 /* Foundation.framework */,
 				392590C817887AF700ACF4F0 /* CoreGraphics.framework */,
@@ -105,12 +140,17 @@
 		392590CA17887AF700ACF4F0 /* ioweyou */ = {
 			isa = PBXGroup;
 			children = (
+				3909D989178B4C80005674BC /* background.png */,
 				3902CEA11788BC34007869D0 /* EntryCell */,
 				392590D317887AF700ACF4F0 /* IOUAppDelegate.h */,
 				392590D417887AF700ACF4F0 /* IOUAppDelegate.m */,
 				392590DC17887AF800ACF4F0 /* MainStoryboard.storyboard */,
-				392590DF17887AF800ACF4F0 /* IOUViewController.h */,
-				392590E017887AF800ACF4F0 /* IOUViewController.m */,
+				392590DF17887AF800ACF4F0 /* EntryListViewController.h */,
+				392590E017887AF800ACF4F0 /* EntryListViewController.m */,
+				3998B76017897EFA007AF346 /* MenuViewController.h */,
+				3998B76117897EFA007AF346 /* MenuViewController.m */,
+				39257D611789B4480011E1E1 /* LoginViewController.h */,
+				39257D621789B4480011E1E1 /* LoginViewController.m */,
 				392590CB17887AF700ACF4F0 /* Supporting Files */,
 			);
 			path = ioweyou;
@@ -190,6 +230,8 @@
 				392590DB17887AF800ACF4F0 /* Default-568h@2x.png in Resources */,
 				392590DE17887AF800ACF4F0 /* MainStoryboard.storyboard in Resources */,
 				3902CEA01788B98C007869D0 /* IOUEntryCell.xib in Resources */,
+				39257D561789AE9C0011E1E1 /* FacebookSDKResources.bundle in Resources */,
+				3909D98A178B4C80005674BC /* background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,8 +277,10 @@
 			files = (
 				392590D117887AF700ACF4F0 /* main.m in Sources */,
 				392590D517887AF700ACF4F0 /* IOUAppDelegate.m in Sources */,
-				392590E117887AF800ACF4F0 /* IOUViewController.m in Sources */,
+				392590E117887AF800ACF4F0 /* EntryListViewController.m in Sources */,
 				3902CEA71788BD46007869D0 /* IOUEntryCell.m in Sources */,
+				3998B76217897EFA007AF346 /* MenuViewController.m in Sources */,
+				39257D631789B4480011E1E1 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +366,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 514AEFE70E014041BE782685 /* Pods/Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ioweyou/ioweyou-Prefix.pch";
 				INFOPLIST_FILE = "ioweyou/ioweyou-Info.plist";
@@ -334,6 +382,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 514AEFE70E014041BE782685 /* Pods/Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ioweyou/ioweyou-Prefix.pch";
 				INFOPLIST_FILE = "ioweyou/ioweyou-Info.plist";
