@@ -31,16 +31,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSURL *url = [NSURL URLWithString:@"http://ioweyou.local.tld:8000/entries/summary/4"];
+    NSURL *url = [NSURL URLWithString:@"http://ioweyou.local.tld:8000/entries/summary?uid=100000284981757&apiToken=1d21f9e5-a233-4fd3-bab9-2e3768b3457c"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *operation;
     operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id jsonObject) {
         self.summary = [jsonObject objectForKey:@"summary"];;
-        self.summaryButton.titleLabel.text = self.summary;
-    } failure:^(NSURLRequest *req, NSHTTPURLResponse *response, NSError *error, id jsonObject) {
-        NSLog(@"Received an HTTP %d", response.statusCode);
-        NSLog(@"The error was: %@", error);
+        self.summaryButton.titleLabel.text = self.summary;    } failure:^(NSURLRequest *req, NSHTTPURLResponse *response, NSError *error, id jsonObject) {
     }];
     
     [operation start];

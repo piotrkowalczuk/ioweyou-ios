@@ -24,7 +24,7 @@
     [super viewDidLoad];
     [self.tableView setDataSource:self];
     self.tableView.delegate = self;
-    NSURL *url = [NSURL URLWithString:@"http://ioweyou.local.tld:8000/entries"];
+    NSURL *url = [NSURL URLWithString:@"http://ioweyou.local.tld:8000/entries?uid=100000284981757&apiToken=1e118814-fec7-40e3-9230-e2e2b745332c"];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *operation;
