@@ -10,6 +10,7 @@
 		3902CEA01788B98C007869D0 /* IOUEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3902CE9F1788B98C007869D0 /* IOUEntryCell.xib */; };
 		3902CEA71788BD46007869D0 /* IOUEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3902CEA61788BD46007869D0 /* IOUEntryCell.m */; };
 		3909D98A178B4C80005674BC /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 3909D989178B4C80005674BC /* background.png */; };
+		3923979617E21FD0006F4F81 /* AddEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3923979517E21FCF006F4F81 /* AddEntryViewController.m */; };
 		39257D541789AE790011E1E1 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39257D531789AE790011E1E1 /* FacebookSDK.framework */; };
 		39257D561789AE9C0011E1E1 /* FacebookSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 39257D551789AE9C0011E1E1 /* FacebookSDKResources.bundle */; };
 		39257D5C1789AF370011E1E1 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39257D571789AF370011E1E1 /* Accounts.framework */; };
@@ -33,8 +34,17 @@
 		3933CFAB17BE1DDA00C02F36 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3933CFAA17BE1DDA00C02F36 /* CoreData.framework */; };
 		3933D01717BE9E6000C02F36 /* IOUManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3933D01617BE9E6000C02F36 /* IOUManager.m */; };
 		3998B76217897EFA007AF346 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3998B76117897EFA007AF346 /* MenuViewController.m */; };
+		39B3B40517E4B17A0062C0E7 /* EntryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B3B40417E4B17A0062C0E7 /* EntryDetailViewController.m */; };
+		39B3B40817E4DD360062C0E7 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B3B40717E4DD360062C0E7 /* Entry.m */; };
+		39B3B40B17E4E0350062C0E7 /* EntryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B3B40A17E4E0350062C0E7 /* EntryManager.m */; };
+		39B3B40F17E4E0540062C0E7 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B3B40E17E4E0540062C0E7 /* UserManager.m */; };
+		39B3B41217E663BC0062C0E7 /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B3B41117E663BC0062C0E7 /* FriendListViewController.m */; };
+		39B3B41517E6664A0062C0E7 /* IOUFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B3B41417E6664A0062C0E7 /* IOUFriendCell.xib */; };
+		39B3B41817E666740062C0E7 /* IOUFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B3B41717E666740062C0E7 /* IOUFriendCell.m */; };
 		39D2A67217AD67B0009CF7DC /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 39D2A67017AD67B0009CF7DC /* Model.xcdatamodeld */; };
 		39D2A67517AD6EFC009CF7DC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D2A67417AD6EFC009CF7DC /* User.m */; };
+		39DC9EA317E25C4600AED985 /* IOUButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DC9EA217E25C4600AED985 /* IOUButton.m */; };
+		39DC9EA917E25CB200AED985 /* IOUButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39DC9EA817E25CB200AED985 /* IOUButton.xib */; };
 		5946AB486A934D2DB091EA62 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD5A7D482089473599E6CB6C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +53,8 @@
 		3902CEA51788BD46007869D0 /* IOUEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IOUEntryCell.h; path = ioweyou/IOUEntryCell.h; sourceTree = "<group>"; };
 		3902CEA61788BD46007869D0 /* IOUEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IOUEntryCell.m; path = ioweyou/IOUEntryCell.m; sourceTree = "<group>"; };
 		3909D989178B4C80005674BC /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		3923979417E21FCF006F4F81 /* AddEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEntryViewController.h; sourceTree = "<group>"; };
+		3923979517E21FCF006F4F81 /* AddEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEntryViewController.m; sourceTree = "<group>"; };
 		39257D531789AE790011E1E1 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		39257D551789AE9C0011E1E1 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = FacebookSDKResources.bundle; path = ../../../Documents/FacebookSDK/FacebookSDK.framework/Versions/A/Resources/FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		39257D571789AF370011E1E1 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -75,9 +87,25 @@
 		3933D01617BE9E6000C02F36 /* IOUManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOUManager.m; sourceTree = "<group>"; };
 		3998B76017897EFA007AF346 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		3998B76117897EFA007AF346 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		39B3B40317E4B17A0062C0E7 /* EntryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryDetailViewController.h; path = ../EntryDetailViewController.h; sourceTree = "<group>"; };
+		39B3B40417E4B17A0062C0E7 /* EntryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntryDetailViewController.m; path = ../EntryDetailViewController.m; sourceTree = "<group>"; };
+		39B3B40617E4DD360062C0E7 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
+		39B3B40717E4DD360062C0E7 /* Entry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entry.m; sourceTree = "<group>"; };
+		39B3B40917E4E0350062C0E7 /* EntryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryManager.h; sourceTree = "<group>"; };
+		39B3B40A17E4E0350062C0E7 /* EntryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryManager.m; sourceTree = "<group>"; };
+		39B3B40D17E4E0540062C0E7 /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
+		39B3B40E17E4E0540062C0E7 /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
+		39B3B41017E663BC0062C0E7 /* FriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListViewController.h; sourceTree = "<group>"; };
+		39B3B41117E663BC0062C0E7 /* FriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
+		39B3B41417E6664A0062C0E7 /* IOUFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IOUFriendCell.xib; sourceTree = "<group>"; };
+		39B3B41617E666740062C0E7 /* IOUFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOUFriendCell.h; sourceTree = "<group>"; };
+		39B3B41717E666740062C0E7 /* IOUFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOUFriendCell.m; sourceTree = "<group>"; };
 		39D2A67117AD67B0009CF7DC /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		39D2A67317AD6EFC009CF7DC /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		39D2A67417AD6EFC009CF7DC /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		39DC9EA117E25C4600AED985 /* IOUButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOUButton.h; sourceTree = "<group>"; };
+		39DC9EA217E25C4600AED985 /* IOUButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOUButton.m; sourceTree = "<group>"; };
+		39DC9EA817E25CB200AED985 /* IOUButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IOUButton.xib; sourceTree = "<group>"; };
 		514AEFE70E014041BE782685 /* Pods/Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		CD5A7D482089473599E6CB6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -155,19 +183,26 @@
 		392590CA17887AF700ACF4F0 /* ioweyou */ = {
 			isa = PBXGroup;
 			children = (
+				39B3B40C17E4E03B0062C0E7 /* Managers */,
+				39DC9EA417E25C5000AED985 /* UI */,
 				3933CFA617BCE35600C02F36 /* Lib */,
 				39D2A67617AD6F0C009CF7DC /* Model */,
 				3909D989178B4C80005674BC /* background.png */,
-				3902CEA11788BC34007869D0 /* EntryCell */,
 				392590D317887AF700ACF4F0 /* IOUAppDelegate.h */,
 				392590D417887AF700ACF4F0 /* IOUAppDelegate.m */,
 				392590DC17887AF800ACF4F0 /* MainStoryboard.storyboard */,
 				392590DF17887AF800ACF4F0 /* EntryListViewController.h */,
 				392590E017887AF800ACF4F0 /* EntryListViewController.m */,
+				39B3B40317E4B17A0062C0E7 /* EntryDetailViewController.h */,
+				39B3B40417E4B17A0062C0E7 /* EntryDetailViewController.m */,
 				3998B76017897EFA007AF346 /* MenuViewController.h */,
 				3998B76117897EFA007AF346 /* MenuViewController.m */,
 				39257D611789B4480011E1E1 /* LoginViewController.h */,
 				39257D621789B4480011E1E1 /* LoginViewController.m */,
+				3923979417E21FCF006F4F81 /* AddEntryViewController.h */,
+				3923979517E21FCF006F4F81 /* AddEntryViewController.m */,
+				39B3B41017E663BC0062C0E7 /* FriendListViewController.h */,
+				39B3B41117E663BC0062C0E7 /* FriendListViewController.m */,
 				392590CB17887AF700ACF4F0 /* Supporting Files */,
 			);
 			path = ioweyou;
@@ -192,10 +227,31 @@
 			children = (
 				3933CFA717BCE38000C02F36 /* IOUAPI.h */,
 				3933CFA817BCE38000C02F36 /* IOUAPI.m */,
-				3933D01517BE9E6000C02F36 /* IOUManager.h */,
-				3933D01617BE9E6000C02F36 /* IOUManager.m */,
 			);
 			name = Lib;
+			sourceTree = "<group>";
+		};
+		39B3B40C17E4E03B0062C0E7 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3933D01517BE9E6000C02F36 /* IOUManager.h */,
+				3933D01617BE9E6000C02F36 /* IOUManager.m */,
+				39B3B40917E4E0350062C0E7 /* EntryManager.h */,
+				39B3B40A17E4E0350062C0E7 /* EntryManager.m */,
+				39B3B40D17E4E0540062C0E7 /* UserManager.h */,
+				39B3B40E17E4E0540062C0E7 /* UserManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		39B3B41317E666270062C0E7 /* FriendCell */ = {
+			isa = PBXGroup;
+			children = (
+				39B3B41417E6664A0062C0E7 /* IOUFriendCell.xib */,
+				39B3B41617E666740062C0E7 /* IOUFriendCell.h */,
+				39B3B41717E666740062C0E7 /* IOUFriendCell.m */,
+			);
+			name = FriendCell;
 			sourceTree = "<group>";
 		};
 		39D2A67617AD6F0C009CF7DC /* Model */ = {
@@ -204,8 +260,30 @@
 				39D2A67017AD67B0009CF7DC /* Model.xcdatamodeld */,
 				39D2A67317AD6EFC009CF7DC /* User.h */,
 				39D2A67417AD6EFC009CF7DC /* User.m */,
+				39B3B40617E4DD360062C0E7 /* Entry.h */,
+				39B3B40717E4DD360062C0E7 /* Entry.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		39DC9EA417E25C5000AED985 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				39B3B41317E666270062C0E7 /* FriendCell */,
+				39DC9EA517E25C6100AED985 /* IOUButton */,
+				3902CEA11788BC34007869D0 /* EntryCell */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		39DC9EA517E25C6100AED985 /* IOUButton */ = {
+			isa = PBXGroup;
+			children = (
+				39DC9EA117E25C4600AED985 /* IOUButton.h */,
+				39DC9EA217E25C4600AED985 /* IOUButton.m */,
+				39DC9EA817E25CB200AED985 /* IOUButton.xib */,
+			);
+			name = IOUButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +348,8 @@
 				3902CEA01788B98C007869D0 /* IOUEntryCell.xib in Resources */,
 				39257D561789AE9C0011E1E1 /* FacebookSDKResources.bundle in Resources */,
 				3909D98A178B4C80005674BC /* background.png in Resources */,
+				39DC9EA917E25CB200AED985 /* IOUButton.xib in Resources */,
+				39B3B41517E6664A0062C0E7 /* IOUFriendCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +403,14 @@
 				39D2A67517AD6EFC009CF7DC /* User.m in Sources */,
 				3933CFA917BCE38000C02F36 /* IOUAPI.m in Sources */,
 				3933D01717BE9E6000C02F36 /* IOUManager.m in Sources */,
+				3923979617E21FD0006F4F81 /* AddEntryViewController.m in Sources */,
+				39DC9EA317E25C4600AED985 /* IOUButton.m in Sources */,
+				39B3B40517E4B17A0062C0E7 /* EntryDetailViewController.m in Sources */,
+				39B3B40817E4DD360062C0E7 /* Entry.m in Sources */,
+				39B3B40B17E4E0350062C0E7 /* EntryManager.m in Sources */,
+				39B3B40F17E4E0540062C0E7 /* UserManager.m in Sources */,
+				39B3B41217E663BC0062C0E7 /* FriendListViewController.m in Sources */,
+				39B3B41817E666740062C0E7 /* IOUFriendCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

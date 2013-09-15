@@ -12,13 +12,13 @@
 
 @interface User : NSManagedObject
 
-@property (nonatomic, retain) NSString * username;
-@property (nonatomic, retain) NSString * firstName;
-@property (nonatomic, retain) NSString * lastName             ;
-@property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSString * facebookId;
-@property (nonatomic, retain) NSString * facebookToken;
-@property (nonatomic, retain) NSString * ioweyouId;
-@property (nonatomic, retain) NSString * ioweyouToken;
+@property (nonatomic, strong) NSString * username;
+@property (nonatomic, strong) NSString * firstName;
+@property (nonatomic, strong) NSString * lastName             ;
+@property (nonatomic, strong) NSString * email;
+@property (nonatomic, strong) NSString * facebookId;
+@property (nonatomic, strong) NSString * facebookToken;
+@property (nonatomic, strong) NSString * ioweyouId;
+@property (nonatomic, strong) NSString * ioweyouToken;
 
 @end

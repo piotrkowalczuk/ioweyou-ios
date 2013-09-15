@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ioweyou/EntryListViewController.m"
-         timestampString = "396826280.815535"
+         timestampString = "400975478.605659"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "98"
-         endingLineNumber = "98"
+         startingLineNumber = "124"
+         endingLineNumber = "124"
          landmarkName = "-populateTableCell:with:"
          landmarkType = "5">
       </FileBreakpoint>

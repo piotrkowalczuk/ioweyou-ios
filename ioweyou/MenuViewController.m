@@ -9,6 +9,15 @@
 #import "MenuViewController.h"
 #import "IOUAppDelegate.h"
 #import <AFNetworking/AFNetworking.h>
+#import "IOUManager.h"
+#import "UserManager.h"
+
+@interface MenuViewController ()
+{
+    NSManagedObjectContext *context;
+}
+
+@end
 
 @interface MenuViewController ()
 
@@ -30,18 +39,25 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
-    NSURL *url = [NSURL URLWithString:@"http://ioweyou.local.tld:8000/entries/summary?uid=100000284981757&apiToken=1d21f9e5-a233-4fd3-bab9-2e3768b3457c"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    AFJSONRequestOperation *operation;
-    operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id jsonObject) {
-        self.summary = [jsonObject objectForKey:@"summary"];;
-        self.summaryButton.titleLabel.text = self.summary;    } failure:^(NSURLRequest *req, NSHTTPURLResponse *response, NSError *error, id jsonObject) {
+    IOUAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    context = [appDelegate managedObjectContext];
+    
+    UserManager *userManager = [[UserManager alloc] init];
+    NSDictionary *params = [userManager getAuthParamsInManagedObjectContext:context];
+    
+
+    [[IOUManager sharedManager] getPath:@"/entries/summary" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.summaryButton.titleLabel.text = [responseObject objectForKey:@"summary"];  
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
     }];
-    
-    [operation start];
 }
+
+
+
 
 - (void)didReceiveMemoryWarning
 {

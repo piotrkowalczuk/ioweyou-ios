@@ -9,8 +9,16 @@
 #import "EntryListViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import "IOUEntryCell.h"
+#import "IOUManager.h"
+#import "UserManager.h"
+#import "IOUAppDelegate.h"
+#import "EntryDetailViewController.h"
 
-@interface EntryListViewController (er)
+@interface EntryListViewController ()
+{
+    NSManagedObjectContext *context;
+    User *user;
+}
 
 @end
 
@@ -24,20 +32,36 @@
     [super viewDidLoad];
     [self.tableView setDataSource:self];
     self.tableView.delegate = self;
-    NSURL *url = [NSURL URLWithString:@"http://ioweyou.local.tld:8000/entries?uid=100000284981757&apiToken=1e118814-fec7-40e3-9230-e2e2b745332c"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    AFJSONRequestOperation *operation;
-    operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id jsonObject) {
-        self.results = jsonObject;
+    IOUAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    context = [appDelegate managedObjectContext];
+    
+    UserManager *userManager = [[UserManager alloc] init];
+    user = [userManager fetchUserInManagedObjectContext:context];
+    NSDictionary *params = [userManager getAuthParamsInManagedObjectContext:context];
+    
+    [[IOUManager sharedManager] getPath:@"/entries" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        self.results = responseObject;
         [self.tableView reloadData];
-    } failure:^(NSURLRequest *req, NSHTTPURLResponse *response, NSError *error, id jsonObject) {
-        NSLog(@"Received an HTTP %d", response.statusCode);
-        NSLog(@"The error was: %@", error);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
     }];
-    
-    [operation start];
 
+
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSIndexPath *)indexPath {
+    if([segue.identifier isEqualToString:@"entryDetails"]){
+        EntryDetailViewController *controller = (EntryDetailViewController *)segue.destinationViewController;
+        controller.entry = [self.results objectAtIndex:indexPath.row];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"entryDetails" sender:indexPath];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,7 +72,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -74,16 +98,6 @@
 
 - (void)populateTableCell:(IOUEntryCell *)cell with:(NSDictionary *)entry
 {
-
-//    NSString *position = [entry objectForKey:@"position"];
-    
-//    NSDictionary *contractor;
-//    if ([position isEqual:@"lender"]) {
-//        contractor = [entry objectForKey:@"debtor"];
-//    } else {
-//        contractor = [entry objectForKey:@"lender"];
-//    }
-//    contractor = [entry objectForKey:@"lender"];
     NSString *firstName = [entry objectForKey:@"debtor_first_name"];
     NSString *lastName = [entry objectForKey:@"debtor_last_name"];
     NSString *username = [entry objectForKey:@"debtor_username"];
@@ -94,6 +108,18 @@
     cell.firstLine.text = name;
     cell.thirdLine.text = date;
     cell.rightLine.text = value;
+    
+    UIColor *valueColor;
+
+    if([user.ioweyouId isEqualToString:[[entry objectForKey:@"debtor_id"] stringValue]])
+    {
+        valueColor = [UIColor redColor];
+    } else {
+        valueColor = [UIColor greenColor];
+    }
+    
+    cell.rightLine.textColor = valueColor;
+    
     cell.secondLine.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
     [cell.image setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://graph.facebook.com/%@/picture", username]]];
 
@@ -101,12 +127,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 84;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self performSegueWithIdentifier:@"entryDetails" sender:indexPath];
+    return 60;
 }
 
 

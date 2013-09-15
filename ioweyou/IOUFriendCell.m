@@ -1,20 +1,17 @@
 //
-//  IOUEntryCell.m
+//  IOUFriendCell.m
 //  ioweyou
 //
-//  Created by Piotr Kowalczuk on 06.07.2013.
+//  Created by Piotr Kowalczuk on 16.09.2013.
 //  Copyright (c) 2013 Piotr Kowalczuk. All rights reserved.
 //
 
-#import "IOUEntryCell.h"
+#import "IOUFriendCell.h"
 
-@implementation IOUEntryCell
+@implementation IOUFriendCell
 
-@synthesize firstLine = _firstLine;
+@synthesize friendName = _friendName;
 @synthesize image = _image;
-@synthesize secondLine = _secondLine;
-@synthesize thirdLine = _thirdLine;
-@synthesize rightLine = _rightLine;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -28,6 +25,8 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
 }
 
 @end
