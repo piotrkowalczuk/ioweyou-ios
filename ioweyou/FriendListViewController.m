@@ -19,7 +19,6 @@
     NSManagedObjectContext *context;
     User *user;
 }
-
 @end
 
 @implementation FriendListViewController

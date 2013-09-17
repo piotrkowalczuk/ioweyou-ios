@@ -17,5 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *debtor_avatar;
 @property (weak, nonatomic) IBOutlet UIImageView *lender_avatar;
 @property (weak, nonatomic) IBOutlet UILabel *value;
+@property (weak, nonatomic) IBOutlet UILabel *status;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *actionSheetButton;
+@property (weak, nonatomic) UIActionSheet *actionSheet;
 @end
