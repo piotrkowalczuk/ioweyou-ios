@@ -39,9 +39,9 @@
 - (void)acceptEntry:(NSNumber *)entryId success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
     NSDictionary *params = [userManager getAuthParamsInManagedObjectContext:context];
-    NSMutableString *getPath = [NSMutableString stringWithString:@"/entry/accept/"];
-    [getPath appendString:[entryId stringValue]];
-    [[IOUManager sharedManager] postPath:getPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSMutableString *postPath = [NSMutableString stringWithString:@"/entry/accept/"];
+    [postPath appendString:[entryId stringValue]];
+    [[IOUManager sharedManager] postPath:postPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _successHandler = [success copy];
         _successHandler(responseObject);
         _successHandler = nil;    
@@ -55,9 +55,9 @@
 - (void)rejectEntry:(NSNumber *)entryId success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
     NSDictionary *params = [userManager getAuthParamsInManagedObjectContext:context];
-    NSMutableString *getPath = [NSMutableString stringWithString:@"/entry/reject/"];
-    [getPath appendString:[entryId stringValue]];
-    [[IOUManager sharedManager] postPath:getPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSMutableString *postPath = [NSMutableString stringWithString:@"/entry/reject/"];
+    [postPath appendString:[entryId stringValue]];
+    [[IOUManager sharedManager] postPath:postPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _successHandler = [success copy];
         _successHandler(responseObject);
         _successHandler = nil;
@@ -71,9 +71,9 @@
 - (void)deleteEntry:(NSNumber *)entryId success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
     NSDictionary *params = [userManager getAuthParamsInManagedObjectContext:context];
-    NSMutableString *getPath = [NSMutableString stringWithString:@"/entry/"];
-    [getPath appendString:[entryId stringValue]];
-    [[IOUManager sharedManager] deletePath:getPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSMutableString *deletePath = [NSMutableString stringWithString:@"/entry/"];
+    [deletePath appendString:[entryId stringValue]];
+    [[IOUManager sharedManager] deletePath:deletePath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _successHandler = [success copy];
         _successHandler(responseObject);
         _successHandler = nil;

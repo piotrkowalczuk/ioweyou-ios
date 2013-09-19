@@ -12,6 +12,7 @@
 #import "UserManager.h"
 #import "IOUAppDelegate.h"
 #import "EntryManager.h"
+#import "MenuViewController.h"
 
 @interface EntryDetailViewController ()
 {
@@ -120,7 +121,7 @@
 
 -(void)rejectEntry {
     EntryManager *entryManager = [[EntryManager alloc]init];
-    [entryManager acceptEntry:[self.entry objectForKey:@"id"] success:^(id responseObject) {
+    [entryManager rejectEntry:[self.entry objectForKey:@"id"] success:^(id responseObject) {
         if([responseObject valueForKey:@"isModified"]) {
             [self.status setText:@"rejected"];
         }
@@ -133,7 +134,8 @@
     EntryManager *entryManager = [[EntryManager alloc]init];
     [entryManager deleteEntry:[self.entry objectForKey:@"id"] success:^(id responseObject) {
         if([responseObject valueForKey:@"isModified"]) {
-            [self.status setText:@"deleted"];
+            MenuViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"MenuView"];
+            [self.navigationController pushViewController:controller animated:YES];
         }
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
