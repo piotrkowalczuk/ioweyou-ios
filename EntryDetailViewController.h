@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EntryDetailViewController : UIViewController
+@interface EntryDetailViewController : UIViewController <UIActionSheetDelegate>
 
-@property(nonatomic, strong) NSDictionary *entry;
+@property(nonatomic, strong) NSMutableDictionary *entry;
 @property (weak, nonatomic) IBOutlet UITextView *description;
 @property (weak, nonatomic) IBOutlet UILabel *debtor_name;
 @property (weak, nonatomic) IBOutlet UILabel *lender_name;
@@ -20,5 +20,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *status;
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *actionSheetButton;
-@property (weak, nonatomic) UIActionSheet *actionSheet;
+@property (strong, nonatomic) UIActionSheet *actionSheet;
+
 @end

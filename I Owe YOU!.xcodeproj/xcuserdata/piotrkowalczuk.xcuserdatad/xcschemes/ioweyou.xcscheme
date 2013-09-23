@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "392590C017887AF700ACF4F0"
-               BuildableName = "ioweyou.app"
-               BlueprintName = "ioweyou"
-               ReferencedContainer = "container:ioweyou.xcodeproj">
+               BuildableName = "I Owe YOU!.app"
+               BlueprintName = "I Owe YOU!"
+               ReferencedContainer = "container:I Owe YOU!.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "392590C017887AF700ACF4F0"
-            BuildableName = "ioweyou.app"
-            BlueprintName = "ioweyou"
-            ReferencedContainer = "container:ioweyou.xcodeproj">
+            BuildableName = "I Owe YOU!.app"
+            BlueprintName = "I Owe YOU!"
+            ReferencedContainer = "container:I Owe YOU!.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "392590C017887AF700ACF4F0"
-            BuildableName = "ioweyou.app"
-            BlueprintName = "ioweyou"
-            ReferencedContainer = "container:ioweyou.xcodeproj">
+            BuildableName = "I Owe YOU!.app"
+            BlueprintName = "I Owe YOU!"
+            ReferencedContainer = "container:I Owe YOU!.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "392590C017887AF700ACF4F0"
-            BuildableName = "ioweyou.app"
-            BlueprintName = "ioweyou"
-            ReferencedContainer = "container:ioweyou.xcodeproj">
+            BuildableName = "I Owe YOU!.app"
+            BlueprintName = "I Owe YOU!"
+            ReferencedContainer = "container:I Owe YOU!.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

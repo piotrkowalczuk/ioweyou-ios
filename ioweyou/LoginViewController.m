@@ -46,20 +46,21 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    
     IOUAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     if(appDelegate.session.isOpen) {
         NSString *facebookToken = [[[FBSession activeSession]accessTokenData]accessToken];
         NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:facebookToken, @"pass", nil];
         
         [[IOUManager sharedManager] postPath:@"/login" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
             UserManager *userManager = [[UserManager alloc] init];
             [userManager createOrUpdateUserWithUsername:[responseObject valueForKey:@"username"] firstName:[responseObject valueForKey:@"first_name"] lastName: [responseObject valueForKey:@"last_name"] email:[responseObject valueForKey:@"email"] facebookId:[responseObject valueForKey:@"facebookId"] facebookToken:facebookToken ioweyouId:[responseObject valueForKey:@"ioweyouId"] ioweyouToken:[responseObject valueForKey:@"ioweyouToken"] inManagedObjectContext: context];
             
+            [self performSegueWithIdentifier:@"loginRedirection" sender:self];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"%@", error);
         }];
-        
-        [self performSegueWithIdentifier:@"loginRedirection" sender:self];
     }
 }
 
@@ -91,18 +92,17 @@
                     NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:facebookToken, @"pass", nil];
 
                     [[IOUManager sharedManager] postPath:@"/login" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                        NSLog(@"%@", responseObject);
+
                         UserManager *userManager = [[UserManager alloc] init];
                         [userManager createOrUpdateUserWithUsername:[responseObject valueForKey:@"username"] firstName:[responseObject valueForKey:@"first_name"] lastName: [responseObject valueForKey:@"last_name"] email:[responseObject valueForKey:@"email"] facebookId:[responseObject valueForKey:@"facebookId"] facebookToken:facebookToken ioweyouId:[responseObject valueForKey:@"ioweyouId"] ioweyouToken:[responseObject valueForKey:@"ioweyouToken"] inManagedObjectContext: context];
                         
+                        [self performSegueWithIdentifier:@"loginRedirection" sender:self];
                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                         NSLog(@"%@", error);
                     }];
 
                 }
             }];
-
-          [self performSegueWithIdentifier:@"loginRedirection" sender:self];
         }];
         
     }

@@ -19,7 +19,7 @@
     user = [self fetchUserWithUsername:username inManagedObjectContext:context];
     
     if(!user){
-        NSLog(@"Nie ma");
+        NSLog(@"User nie istnieje, stwórz nowego.");
         user = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([User class]) inManagedObjectContext:context];
     }
     

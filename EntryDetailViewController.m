@@ -13,6 +13,7 @@
 #import "IOUAppDelegate.h"
 #import "EntryManager.h"
 #import "MenuViewController.h"
+#import "EntryEditViewController.h"
 
 @interface EntryDetailViewController ()
 {
@@ -105,6 +106,12 @@
     
     if([buttonTitle isEqualToString:@"Delete"]) {
         [self deleteEntry];
+    }
+    
+    if([buttonTitle isEqualToString:@"Edit"]) {
+        EntryEditViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"EntryEditView"];
+        [controller setEntry:self.entry];
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 

@@ -30,10 +30,11 @@
 		392590DB17887AF800ACF4F0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 392590DA17887AF800ACF4F0 /* Default-568h@2x.png */; };
 		392590DE17887AF800ACF4F0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 392590DC17887AF800ACF4F0 /* MainStoryboard.storyboard */; };
 		392590E117887AF800ACF4F0 /* EntryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392590E017887AF800ACF4F0 /* EntryListViewController.m */; };
-		3933CFA917BCE38000C02F36 /* IOUAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3933CFA817BCE38000C02F36 /* IOUAPI.m */; };
 		3933CFAB17BE1DDA00C02F36 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3933CFAA17BE1DDA00C02F36 /* CoreData.framework */; };
 		3933D01717BE9E6000C02F36 /* IOUManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3933D01617BE9E6000C02F36 /* IOUManager.m */; };
 		3998B76217897EFA007AF346 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3998B76117897EFA007AF346 /* MenuViewController.m */; };
+		39B0685D17EB86BD00250F83 /* EntryEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B0685C17EB86BD00250F83 /* EntryEditViewController.m */; };
+		39B0685F17EB9C6800250F83 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B0685E17EB9C6800250F83 /* icon.png */; };
 		39B3B40517E4B17A0062C0E7 /* EntryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B3B40417E4B17A0062C0E7 /* EntryDetailViewController.m */; };
 		39B3B40817E4DD360062C0E7 /* Entry.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B3B40717E4DD360062C0E7 /* Entry.m */; };
 		39B3B40B17E4E0350062C0E7 /* EntryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B3B40A17E4E0350062C0E7 /* EntryManager.m */; };
@@ -64,14 +65,14 @@
 		39257D5B1789AF370011E1E1 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		39257D611789B4480011E1E1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		39257D621789B4480011E1E1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		392590C117887AF700ACF4F0 /* ioweyou.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ioweyou.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		392590C117887AF700ACF4F0 /* I Owe YOU!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "I Owe YOU!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		392590C417887AF700ACF4F0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		392590C617887AF700ACF4F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		392590C817887AF700ACF4F0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		392590CC17887AF700ACF4F0 /* ioweyou-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ioweyou-Info.plist"; sourceTree = "<group>"; };
+		392590CC17887AF700ACF4F0 /* I Owe YOU!-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "I Owe YOU!-Info.plist"; sourceTree = "<group>"; };
 		392590CE17887AF700ACF4F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		392590D017887AF700ACF4F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		392590D217887AF700ACF4F0 /* ioweyou-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ioweyou-Prefix.pch"; sourceTree = "<group>"; };
+		392590D217887AF700ACF4F0 /* I Owe YOU!-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "I Owe YOU!-Prefix.pch"; sourceTree = "<group>"; };
 		392590D317887AF700ACF4F0 /* IOUAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IOUAppDelegate.h; sourceTree = "<group>"; };
 		392590D417887AF700ACF4F0 /* IOUAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOUAppDelegate.m; sourceTree = "<group>"; };
 		392590D617887AF700ACF4F0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -80,13 +81,14 @@
 		392590DD17887AF800ACF4F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		392590DF17887AF800ACF4F0 /* EntryListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntryListViewController.h; sourceTree = "<group>"; };
 		392590E017887AF800ACF4F0 /* EntryListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntryListViewController.m; sourceTree = "<group>"; };
-		3933CFA717BCE38000C02F36 /* IOUAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOUAPI.h; sourceTree = "<group>"; };
-		3933CFA817BCE38000C02F36 /* IOUAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOUAPI.m; sourceTree = "<group>"; };
 		3933CFAA17BE1DDA00C02F36 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3933D01517BE9E6000C02F36 /* IOUManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOUManager.h; sourceTree = "<group>"; };
 		3933D01617BE9E6000C02F36 /* IOUManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOUManager.m; sourceTree = "<group>"; };
 		3998B76017897EFA007AF346 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		3998B76117897EFA007AF346 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		39B0685B17EB86BD00250F83 /* EntryEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryEditViewController.h; sourceTree = "<group>"; };
+		39B0685C17EB86BD00250F83 /* EntryEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryEditViewController.m; sourceTree = "<group>"; };
+		39B0685E17EB9C6800250F83 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		39B3B40317E4B17A0062C0E7 /* EntryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryDetailViewController.h; path = ../EntryDetailViewController.h; sourceTree = "<group>"; };
 		39B3B40417E4B17A0062C0E7 /* EntryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EntryDetailViewController.m; path = ../EntryDetailViewController.m; sourceTree = "<group>"; };
 		39B3B40617E4DD360062C0E7 /* Entry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entry.h; sourceTree = "<group>"; };
@@ -106,7 +108,7 @@
 		39DC9EA117E25C4600AED985 /* IOUButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOUButton.h; sourceTree = "<group>"; };
 		39DC9EA217E25C4600AED985 /* IOUButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IOUButton.m; sourceTree = "<group>"; };
 		39DC9EA817E25CB200AED985 /* IOUButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IOUButton.xib; sourceTree = "<group>"; };
-		514AEFE70E014041BE782685 /* Pods/Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		514AEFE70E014041BE782685 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		CD5A7D482089473599E6CB6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -146,18 +148,19 @@
 		392590B817887AF700ACF4F0 = {
 			isa = PBXGroup;
 			children = (
+				39B0685E17EB9C6800250F83 /* icon.png */,
 				3933CFAA17BE1DDA00C02F36 /* CoreData.framework */,
 				392590CA17887AF700ACF4F0 /* ioweyou */,
 				392590C317887AF700ACF4F0 /* Frameworks */,
 				392590C217887AF700ACF4F0 /* Products */,
-				514AEFE70E014041BE782685 /* Pods/Pods.xcconfig */,
+				514AEFE70E014041BE782685 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
 		392590C217887AF700ACF4F0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				392590C117887AF700ACF4F0 /* ioweyou.app */,
+				392590C117887AF700ACF4F0 /* I Owe YOU!.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -185,7 +188,6 @@
 			children = (
 				39B3B40C17E4E03B0062C0E7 /* Managers */,
 				39DC9EA417E25C5000AED985 /* UI */,
-				3933CFA617BCE35600C02F36 /* Lib */,
 				39D2A67617AD6F0C009CF7DC /* Model */,
 				3909D989178B4C80005674BC /* background.png */,
 				392590D317887AF700ACF4F0 /* IOUAppDelegate.h */,
@@ -195,6 +197,8 @@
 				392590E017887AF800ACF4F0 /* EntryListViewController.m */,
 				39B3B40317E4B17A0062C0E7 /* EntryDetailViewController.h */,
 				39B3B40417E4B17A0062C0E7 /* EntryDetailViewController.m */,
+				39B0685B17EB86BD00250F83 /* EntryEditViewController.h */,
+				39B0685C17EB86BD00250F83 /* EntryEditViewController.m */,
 				3998B76017897EFA007AF346 /* MenuViewController.h */,
 				3998B76117897EFA007AF346 /* MenuViewController.m */,
 				39257D611789B4480011E1E1 /* LoginViewController.h */,
@@ -211,24 +215,15 @@
 		392590CB17887AF700ACF4F0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				392590CC17887AF700ACF4F0 /* ioweyou-Info.plist */,
+				392590CC17887AF700ACF4F0 /* I Owe YOU!-Info.plist */,
 				392590CD17887AF700ACF4F0 /* InfoPlist.strings */,
 				392590D017887AF700ACF4F0 /* main.m */,
-				392590D217887AF700ACF4F0 /* ioweyou-Prefix.pch */,
+				392590D217887AF700ACF4F0 /* I Owe YOU!-Prefix.pch */,
 				392590D617887AF700ACF4F0 /* Default.png */,
 				392590D817887AF700ACF4F0 /* Default@2x.png */,
 				392590DA17887AF800ACF4F0 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		3933CFA617BCE35600C02F36 /* Lib */ = {
-			isa = PBXGroup;
-			children = (
-				3933CFA717BCE38000C02F36 /* IOUAPI.h */,
-				3933CFA817BCE38000C02F36 /* IOUAPI.m */,
-			);
-			name = Lib;
 			sourceTree = "<group>";
 		};
 		39B3B40C17E4E03B0062C0E7 /* Managers */ = {
@@ -289,9 +284,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		392590C017887AF700ACF4F0 /* ioweyou */ = {
+		392590C017887AF700ACF4F0 /* I Owe YOU! */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 392590E417887AF800ACF4F0 /* Build configuration list for PBXNativeTarget "ioweyou" */;
+			buildConfigurationList = 392590E417887AF800ACF4F0 /* Build configuration list for PBXNativeTarget "I Owe YOU!" */;
 			buildPhases = (
 				E97BA679652A418F962B7699 /* Check Pods Manifest.lock */,
 				392590BD17887AF700ACF4F0 /* Sources */,
@@ -303,9 +298,9 @@
 			);
 			dependencies = (
 			);
-			name = ioweyou;
+			name = "I Owe YOU!";
 			productName = ioweyou;
-			productReference = 392590C117887AF700ACF4F0 /* ioweyou.app */;
+			productReference = 392590C117887AF700ACF4F0 /* I Owe YOU!.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -318,7 +313,7 @@
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Piotr Kowalczuk";
 			};
-			buildConfigurationList = 392590BC17887AF700ACF4F0 /* Build configuration list for PBXProject "ioweyou" */;
+			buildConfigurationList = 392590BC17887AF700ACF4F0 /* Build configuration list for PBXProject "I Owe YOU!" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -330,7 +325,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				392590C017887AF700ACF4F0 /* ioweyou */,
+				392590C017887AF700ACF4F0 /* I Owe YOU! */,
 			);
 		};
 /* End PBXProject section */
@@ -350,6 +345,7 @@
 				3909D98A178B4C80005674BC /* background.png in Resources */,
 				39DC9EA917E25CB200AED985 /* IOUButton.xib in Resources */,
 				39B3B41517E6664A0062C0E7 /* IOUFriendCell.xib in Resources */,
+				39B0685F17EB9C6800250F83 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,7 +397,6 @@
 				39257D631789B4480011E1E1 /* LoginViewController.m in Sources */,
 				39D2A67217AD67B0009CF7DC /* Model.xcdatamodeld in Sources */,
 				39D2A67517AD6EFC009CF7DC /* User.m in Sources */,
-				3933CFA917BCE38000C02F36 /* IOUAPI.m in Sources */,
 				3933D01717BE9E6000C02F36 /* IOUManager.m in Sources */,
 				3923979617E21FD0006F4F81 /* AddEntryViewController.m in Sources */,
 				39DC9EA317E25C4600AED985 /* IOUButton.m in Sources */,
@@ -411,6 +406,7 @@
 				39B3B40F17E4E0540062C0E7 /* UserManager.m in Sources */,
 				39B3B41217E663BC0062C0E7 /* FriendListViewController.m in Sources */,
 				39B3B41817E666740062C0E7 /* IOUFriendCell.m in Sources */,
+				39B0685D17EB86BD00250F83 /* EntryEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,32 +490,32 @@
 		};
 		392590E517887AF800ACF4F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 514AEFE70E014041BE782685 /* Pods/Pods.xcconfig */;
+			baseConfigurationReference = 514AEFE70E014041BE782685 /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ioweyou/ioweyou-Prefix.pch";
-				INFOPLIST_FILE = "ioweyou/ioweyou-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "ioweyou/I Owe YOU!-Prefix.pch";
+				INFOPLIST_FILE = "ioweyou/I Owe YOU!-Info.plist";
+				PRODUCT_NAME = "I Owe YOU!";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		392590E617887AF800ACF4F0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 514AEFE70E014041BE782685 /* Pods/Pods.xcconfig */;
+			baseConfigurationReference = 514AEFE70E014041BE782685 /* Pods.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ioweyou/ioweyou-Prefix.pch";
-				INFOPLIST_FILE = "ioweyou/ioweyou-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "ioweyou/I Owe YOU!-Prefix.pch";
+				INFOPLIST_FILE = "ioweyou/I Owe YOU!-Info.plist";
+				PRODUCT_NAME = "I Owe YOU!";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -527,7 +523,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		392590BC17887AF700ACF4F0 /* Build configuration list for PBXProject "ioweyou" */ = {
+		392590BC17887AF700ACF4F0 /* Build configuration list for PBXProject "I Owe YOU!" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				392590E217887AF800ACF4F0 /* Debug */,
@@ -536,7 +532,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		392590E417887AF800ACF4F0 /* Build configuration list for PBXNativeTarget "ioweyou" */ = {
+		392590E417887AF800ACF4F0 /* Build configuration list for PBXNativeTarget "I Owe YOU!" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				392590E517887AF800ACF4F0 /* Debug */,

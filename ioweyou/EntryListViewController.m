@@ -55,7 +55,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSIndexPath *)indexPath {
     if([segue.identifier isEqualToString:@"entryDetails"]){
         EntryDetailViewController *controller = (EntryDetailViewController *)segue.destinationViewController;
-        controller.entry = [self.results objectAtIndex:indexPath.row];
+        controller.entry = [[self.results objectAtIndex:indexPath.row] mutableCopy];
     }
 }
 

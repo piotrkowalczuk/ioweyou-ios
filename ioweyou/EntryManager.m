@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 Piotr Kowalczuk. All rights reserved.
 //
 
+#import "Entry.h"
 #import "EntryManager.h"
 #import "UserManager.h"
 #import "IOUManager.h"
@@ -74,6 +75,29 @@
     NSMutableString *deletePath = [NSMutableString stringWithString:@"/entry/"];
     [deletePath appendString:[entryId stringValue]];
     [[IOUManager sharedManager] deletePath:deletePath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        _successHandler = [success copy];
+        _successHandler(responseObject);
+        _successHandler = nil;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        _failureHandler = [failure copy];
+        _failureHandler(error);
+        _failureHandler = nil;
+    }];
+}
+
+
+- (void)modifyEntry:(NSDictionary *)entry success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
+{
+    NSLog(@"%@", entry);
+    
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:[userManager getAuthParamsInManagedObjectContext:context]];
+    [params addEntriesFromDictionary:entry];
+    
+    NSMutableString *modifyPath = [NSMutableString stringWithString:@"/entry/"];
+    [modifyPath appendString:[[entry valueForKey:@"id"] stringValue]];
+    
+    [[IOUManager sharedManager] postPath:modifyPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _successHandler = [success copy];
         _successHandler(responseObject);
         _successHandler = nil;
