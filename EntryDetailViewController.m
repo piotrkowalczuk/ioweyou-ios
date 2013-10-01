@@ -40,28 +40,38 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    if(![[self.entry objectForKey:@"status"] isEqualToNumber:[NSNumber numberWithInt:0]]){
-        [self.actionSheetButton setEnabled:NO];
-    }
-    
-    IOUAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    context = [appDelegate managedObjectContext];
-    
     UserManager *userManager = [[UserManager alloc] init];
-    user = [userManager fetchUserInManagedObjectContext:context];
+    user = [userManager fetchUser];
     
-    self.title = [self.entry objectForKey:@"name"];
-    self.description.text = [self.entry objectForKey:@"description"];
-    self.debtor_name.text = [NSString stringWithFormat:@"%@ %@", [self.entry objectForKey:@"debtor_first_name"], [self.entry objectForKey:@"debtor_last_name"]];
-    self.lender_name.text = [NSString stringWithFormat:@"%@ %@", [self.entry objectForKey:@"lender_first_name"], [self.entry objectForKey:@"lender_last_name"]];
-    self.value.text = [NSString stringWithFormat:@"%@", [self.entry objectForKey:@"value"]];
+    EntryManager *entryManager = [[EntryManager alloc]init];
+    [entryManager fetchOneById:self.entryId success:^(id responseObject) {
+        self.entry = responseObject;
+        
+        [self updateActionSheetButton];
+        [self populateUI];
+    } failure:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+}
+
+- (void)populateUI {
+    
+    [self setTitle:[self.entry objectForKey:@"name"]];
+    [self.description setText:[self.entry objectForKey:@"description"]];
+    [self.debtor_name setText:[NSString stringWithFormat:@"%@ %@", [self.entry objectForKey:@"debtor_first_name"], [self.entry objectForKey:@"debtor_last_name"]]];
+    [self.lender_name setText:[NSString stringWithFormat:@"%@ %@", [self.entry objectForKey:@"lender_first_name"], [self.entry objectForKey:@"lender_last_name"]]];
+    [self.value setText:[NSString stringWithFormat:@"%@", [self.entry objectForKey:@"value"]]];
     [self.status setText: [[self.entry objectForKey:@"status"] stringValue]];
     [self.debtor_avatar setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://graph.facebook.com/%@/picture", [self.entry objectForKey:@"debtor_username"]]]];
     [self.lender_avatar setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://graph.facebook.com/%@/picture", [self.entry objectForKey:@"lender_username"]]]];
-    
-
 }
+
+- (void)updateActionSheetButton {
+    if(![[self.entry objectForKey:@"status"] isEqualToNumber:[NSNumber numberWithInt:0]]){
+        [self.actionSheetButton setEnabled:NO];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -109,12 +119,17 @@
     }
     
     if([buttonTitle isEqualToString:@"Edit"]) {
-        EntryEditViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"EntryEditView"];
-        [controller setEntry:self.entry];
-        [self.navigationController pushViewController:controller animated:YES];
+        [self performSegueWithIdentifier:@"editEntry" sender:buttonTitle];
     }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSIndexPath *)indexPath {
+    if([segue.identifier isEqualToString:@"editEntry"]){
+        EntryDetailViewController *controller = (EntryDetailViewController *)segue.destinationViewController;
+        controller.entryId = [self.entry valueForKey:@"id"];
+    }
+}
+     
 -(void)acceptEntry {
     EntryManager *entryManager = [[EntryManager alloc]init];
     [entryManager acceptEntry:[self.entry objectForKey:@"id"] success:^(id responseObject) {

@@ -10,7 +10,8 @@
 
 @interface FriendListViewController : UITableViewController
 
-@property (nonatomic, retain) IBOutlet UITableView *tableView;
-@property (nonatomic, retain) NSArray *friends;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) NSMutableArray *friends;
+@property (nonatomic, strong) NSMutableDictionary *entry;
 
 @end

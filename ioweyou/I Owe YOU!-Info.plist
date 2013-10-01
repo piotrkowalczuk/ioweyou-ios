@@ -47,6 +47,8 @@
 	<string>108723412644911</string>
 	<key>FacebookDisplayName</key>
 	<string>Debtor Dev</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>

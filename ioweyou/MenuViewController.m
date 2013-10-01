@@ -48,11 +48,8 @@
     
     [super viewDidLoad];
     
-    IOUAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    context = [appDelegate managedObjectContext];
-    
     UserManager *userManager = [[UserManager alloc] init];
-    NSDictionary *params = [userManager getAuthParamsInManagedObjectContext:context];
+    NSDictionary *params = [userManager getAuth];
     
 
     [[IOUManager sharedManager] getPath:@"/entries/summary" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {

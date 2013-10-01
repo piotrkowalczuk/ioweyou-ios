@@ -6,13 +6,14 @@
 //  Copyright (c) 2013 Piotr Kowalczuk. All rights reserved.
 //
 
-#import "EntryListViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import "EntryListViewController.h"
+#import "EntryDetailViewController.h"
 #import "IOUEntryCell.h"
 #import "IOUManager.h"
-#import "UserManager.h"
 #import "IOUAppDelegate.h"
-#import "EntryDetailViewController.h"
+#import "UserManager.h"
+#import "EntryManager.h"
 
 @interface EntryListViewController ()
 {
@@ -37,25 +38,22 @@
     context = [appDelegate managedObjectContext];
     
     UserManager *userManager = [[UserManager alloc] init];
-    user = [userManager fetchUserInManagedObjectContext:context];
-    NSDictionary *params = [userManager getAuthParamsInManagedObjectContext:context];
+    user = [userManager fetchUser];
     
-    [[IOUManager sharedManager] getPath:@"/entries" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+    
+    EntryManager *entryManager = [[EntryManager alloc]init];
+    [entryManager fetchAllsuccess:^(id responseObject) {
         self.results = responseObject;
         [self.tableView reloadData];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         NSLog(@"%@", error);
     }];
-
-
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSIndexPath *)indexPath {
     if([segue.identifier isEqualToString:@"entryDetails"]){
         EntryDetailViewController *controller = (EntryDetailViewController *)segue.destinationViewController;
-        controller.entry = [[self.results objectAtIndex:indexPath.row] mutableCopy];
+        controller.entryId = [[self.results objectAtIndex:indexPath.row] valueForKey:@"id"];
     }
 }
 
@@ -123,6 +121,17 @@
     cell.secondLine.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
     [cell.image setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://graph.facebook.com/%@/picture", username]]];
 
+}
+
+- (void)scrollViewDidScroll: (UIScrollView *)scroll {
+    // UITableView only moves in one direction, y axis
+    NSInteger currentOffset = scroll.contentOffset.y;
+    NSInteger maximumOffset = scroll.contentSize.height - scroll.frame.size.height;
+    
+    // Change 10.0 to adjust the distance from bottom
+    if (maximumOffset - currentOffset <= 10.0) {
+        
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -8,15 +8,34 @@
 
 #import "UserManager.h"
 #import "User.h"
+#import "IOUAppDelegate.h"
+
+@interface UserManager ()
+{
+    NSManagedObjectContext *context;
+    void (^_successHandler)(id responseObject);
+    void (^_failureHandler)(NSError *error);
+}
+@end
 
 @implementation UserManager
 
 
-- (void) createOrUpdateUserWithUsername:(NSString *)username firstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email facebookId:(NSString *)facebookId facebookToken:(NSString *)facebookToken ioweyouId:(NSString *)ioweyouId ioweyouToken:(NSString *)ioweyouToken inManagedObjectContext:(NSManagedObjectContext *)context
+- (id) init
+{
+    self = [super init];
+    if (self != nil) {
+        IOUAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+        context = [appDelegate managedObjectContext];
+    }
+    return self;
+}
+
+- (void) createOrUpdateUserWithUsername:(NSString *)username firstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email facebookId:(NSString *)facebookId facebookToken:(NSString *)facebookToken ioweyouId:(NSString *)ioweyouId ioweyouToken:(NSString *)ioweyouToken
 {
     User *user;
     
-    user = [self fetchUserWithUsername:username inManagedObjectContext:context];
+    user = [self fetchUserWithUsername:username];
     
     if(!user){
         NSLog(@"User nie istnieje, stwórz nowego.");
@@ -40,7 +59,7 @@
 };
 
 
-- (User *) fetchUserWithUsername:(NSString *)username inManagedObjectContext:(NSManagedObjectContext *)context
+- (User *) fetchUserWithUsername:(NSString *)username
 {
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:NSStringFromClass([User class]) inManagedObjectContext:context];
     
@@ -61,7 +80,7 @@
 }
 
 
-- (User *) fetchUserInManagedObjectContext:(NSManagedObjectContext *)context
+- (User *) fetchUser
 {
     NSEntityDescription *entityDescription = [NSEntityDescription entityForName:NSStringFromClass([User class]) inManagedObjectContext:context];
     
@@ -82,10 +101,10 @@
 }
 
 
-- (NSDictionary *) getAuthParamsInManagedObjectContext:(NSManagedObjectContext *)context
+- (NSDictionary *) getAuth
 {
 
-    User *user = [self fetchUserInManagedObjectContext:context];
+    User *user = [self fetchUser];
     
     if(user) {
         NSDictionary *params = @{@"uid" : [user ioweyouId], @"apiToken" : [user ioweyouToken]};

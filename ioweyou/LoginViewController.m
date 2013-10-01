@@ -55,7 +55,7 @@
         [[IOUManager sharedManager] postPath:@"/login" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             UserManager *userManager = [[UserManager alloc] init];
-            [userManager createOrUpdateUserWithUsername:[responseObject valueForKey:@"username"] firstName:[responseObject valueForKey:@"first_name"] lastName: [responseObject valueForKey:@"last_name"] email:[responseObject valueForKey:@"email"] facebookId:[responseObject valueForKey:@"facebookId"] facebookToken:facebookToken ioweyouId:[responseObject valueForKey:@"ioweyouId"] ioweyouToken:[responseObject valueForKey:@"ioweyouToken"] inManagedObjectContext: context];
+            [userManager createOrUpdateUserWithUsername:[responseObject valueForKey:@"username"] firstName:[responseObject valueForKey:@"first_name"] lastName: [responseObject valueForKey:@"last_name"] email:[responseObject valueForKey:@"email"] facebookId:[responseObject valueForKey:@"facebookId"] facebookToken:facebookToken ioweyouId:[responseObject valueForKey:@"ioweyouId"] ioweyouToken:[responseObject valueForKey:@"ioweyouToken"]];
             
             [self performSegueWithIdentifier:@"loginRedirection" sender:self];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -94,7 +94,7 @@
                     [[IOUManager sharedManager] postPath:@"/login" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
                         UserManager *userManager = [[UserManager alloc] init];
-                        [userManager createOrUpdateUserWithUsername:[responseObject valueForKey:@"username"] firstName:[responseObject valueForKey:@"first_name"] lastName: [responseObject valueForKey:@"last_name"] email:[responseObject valueForKey:@"email"] facebookId:[responseObject valueForKey:@"facebookId"] facebookToken:facebookToken ioweyouId:[responseObject valueForKey:@"ioweyouId"] ioweyouToken:[responseObject valueForKey:@"ioweyouToken"] inManagedObjectContext: context];
+                        [userManager createOrUpdateUserWithUsername:[responseObject valueForKey:@"username"] firstName:[responseObject valueForKey:@"first_name"] lastName: [responseObject valueForKey:@"last_name"] email:[responseObject valueForKey:@"email"] facebookId:[responseObject valueForKey:@"facebookId"] facebookToken:facebookToken ioweyouId:[responseObject valueForKey:@"ioweyouId"] ioweyouToken:[responseObject valueForKey:@"ioweyouToken"]];
                         
                         [self performSegueWithIdentifier:@"loginRedirection" sender:self];
                     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

@@ -17,6 +17,7 @@
 @interface FriendListViewController ()
 {
     NSManagedObjectContext *context;
+    NSMutableArray *selectedCells;
     User *user;
 }
 @end
@@ -25,31 +26,34 @@
 
 @synthesize tableView = _tableView;
 @synthesize friends = _friends;
+@synthesize entry = _entry;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     [self.tableView setDataSource:self];
     self.tableView.delegate = self;
-    
+
     IOUAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     context = [appDelegate managedObjectContext];
     
     UserManager *userManager = [[UserManager alloc] init];
-    user = [userManager fetchUserInManagedObjectContext:context];
-    NSDictionary *params = [userManager getAuthParamsInManagedObjectContext:context];
+    user = [userManager fetchUser];
+    NSDictionary *params = [userManager getAuth];
     
     [[IOUManager sharedManager] getPath:@"/friends" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.friends = responseObject;
+        [self setFriends:responseObject];
+        [self initSelectedCellsMutableArray];
         [self.tableView reloadData];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -71,6 +75,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     static NSString *CellIdentifier = @"Cell";
+    NSInteger cellIndex = [indexPath row];
+    
     IOUFriendCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil)
     {
@@ -78,7 +84,14 @@
         cell = [nib objectAtIndex:0];
     }
     
-    NSDictionary *entry = [self.friends objectAtIndex:indexPath.row];
+    NSDictionary *entry = [self.friends objectAtIndex:cellIndex];
+    NSLog(@"%@", [[selectedCells objectAtIndex:cellIndex] class]);
+    if ([[selectedCells objectAtIndex:cellIndex] isEqualToNumber:[NSNumber numberWithInt:1]]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     [self populateTableCell:cell with:entry];
     
     return cell;
@@ -102,8 +115,21 @@
 {
     if([self.tableView cellForRowAtIndexPath:indexPath].accessoryType == UITableViewCellAccessoryCheckmark){
         [self.tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
+        [selectedCells replaceObjectAtIndex:[indexPath row] withObject:[[NSNumber alloc] initWithInt:0]];
     }else{
         [self.tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
+        [selectedCells replaceObjectAtIndex:[indexPath row] withObject:[[NSNumber alloc] initWithInt:1]];
     }
+}
+
+- (void)initSelectedCellsMutableArray
+{
+    NSInteger length = [self.friends count];
+    selectedCells = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < length; i++) {
+        [selectedCells addObject:[[NSNumber alloc] initWithInt:0]];
+    }
+
 }
 @end

@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EntryEditViewController : UIViewController
+@interface EntryEditViewController : UIViewController <UITextViewDelegate>
 
+@property (weak, nonatomic) NSNumber *entryId;
 @property(nonatomic, strong) NSMutableDictionary *entry;
 
 @property (weak, nonatomic) IBOutlet UITextField *name;
 @property (weak, nonatomic) IBOutlet UITextField *value;
 @property (weak, nonatomic) IBOutlet UITextView *description;
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text;
 
 @end

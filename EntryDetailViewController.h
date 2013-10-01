@@ -10,6 +10,7 @@
 
 @interface EntryDetailViewController : UIViewController <UIActionSheetDelegate>
 
+@property (weak, nonatomic) NSNumber *entryId;
 @property(nonatomic, strong) NSMutableDictionary *entry;
 @property (weak, nonatomic) IBOutlet UITextView *description;
 @property (weak, nonatomic) IBOutlet UILabel *debtor_name;

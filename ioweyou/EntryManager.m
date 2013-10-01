@@ -36,12 +36,45 @@
     return self;
 }
 
+- (void)fetchAllsuccess:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *params = [userManager getAuth];
+    NSMutableString *getPath = [NSMutableString stringWithString:@"/entries"];
+    
+    [[IOUManager sharedManager] getPath:getPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        _successHandler = [success copy];
+        _successHandler(responseObject);
+        _successHandler = nil;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        _failureHandler = [failure copy];
+        _failureHandler(error);
+        _failureHandler = nil;
+    }];
+}
+
+- (void)fetchOneById:(NSNumber *)entryId success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
+{
+    NSDictionary *params = [userManager getAuth];
+    NSMutableString *getPath = [NSMutableString stringWithString:@"/entry/"];
+    [getPath appendString:[entryId stringValue]];
+    
+    [[IOUManager sharedManager] getPath:getPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        _successHandler = [success copy];
+        _successHandler(responseObject);
+        _successHandler = nil;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        _failureHandler = [failure copy];
+        _failureHandler(error);
+        _failureHandler = nil;
+    }];
+}
 
 - (void)acceptEntry:(NSNumber *)entryId success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
-    NSDictionary *params = [userManager getAuthParamsInManagedObjectContext:context];
+    NSDictionary *params = [userManager getAuth];
     NSMutableString *postPath = [NSMutableString stringWithString:@"/entry/accept/"];
     [postPath appendString:[entryId stringValue]];
+    
     [[IOUManager sharedManager] postPath:postPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _successHandler = [success copy];
         _successHandler(responseObject);
@@ -55,9 +88,10 @@
 
 - (void)rejectEntry:(NSNumber *)entryId success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
-    NSDictionary *params = [userManager getAuthParamsInManagedObjectContext:context];
+    NSDictionary *params = [userManager getAuth];
     NSMutableString *postPath = [NSMutableString stringWithString:@"/entry/reject/"];
     [postPath appendString:[entryId stringValue]];
+    
     [[IOUManager sharedManager] postPath:postPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _successHandler = [success copy];
         _successHandler(responseObject);
@@ -71,9 +105,10 @@
 
 - (void)deleteEntry:(NSNumber *)entryId success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
-    NSDictionary *params = [userManager getAuthParamsInManagedObjectContext:context];
+    NSDictionary *params = [userManager getAuth];
     NSMutableString *deletePath = [NSMutableString stringWithString:@"/entry/"];
     [deletePath appendString:[entryId stringValue]];
+    
     [[IOUManager sharedManager] deletePath:deletePath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         _successHandler = [success copy];
         _successHandler(responseObject);
@@ -88,10 +123,7 @@
 
 - (void)modifyEntry:(NSDictionary *)entry success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
-    NSLog(@"%@", entry);
-    
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:[userManager getAuthParamsInManagedObjectContext:context]];
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:[userManager getAuth]];
     [params addEntriesFromDictionary:entry];
     
     NSMutableString *modifyPath = [NSMutableString stringWithString:@"/entry/"];

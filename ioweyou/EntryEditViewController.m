@@ -7,6 +7,7 @@
 //
 
 #import "EntryEditViewController.h"
+#import "EntryDetailViewController.h"
 #import "User.h"
 #import "Entrymanager.h"
 
@@ -19,6 +20,7 @@
 
 @implementation EntryEditViewController
 
+@synthesize entryId = _entryId;
 @synthesize entry = _entry;
 @synthesize name = _name;
 @synthesize value = _value;
@@ -36,6 +38,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    EntryManager *entryManager = [[EntryManager alloc]init];
+    [entryManager fetchOneById:self.entryId success:^(id responseObject) {
+        self.entry = [responseObject mutableCopy];
+        [self populateUI];
+    } failure:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+}
+
+- (void)populateUI {
 	[self.name setText:[self.entry valueForKey:@"name"]];
     [self.value setText:[self.entry valueForKey:@"value"]];
     [self.description setText:[self.entry valueForKey:@"description"]];
@@ -47,8 +60,13 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)backgroundTouched:(id)sender {
-    [self.view endEditing:YES];
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([text isEqualToString:@"\n"])
+    {
+        [textView resignFirstResponder];
+    }
+    return YES;
 }
 
 - (IBAction)saveEntry:(id)sender {
@@ -57,12 +75,11 @@
     [self.entry setValue:self.name.text forKey:@"name"];
     [self.entry setValue:self.value.text forKey:@"value"];
     [self.entry setValue:self.description.text forKey:@"description"];
-
     
     [entryManager modifyEntry:self.entry success:^(id responseObject) {
         NSLog(@"%@", responseObject);
         if([responseObject valueForKey:@"isModified"]) {
-
+            [self dismissViewControllerAnimated:YES completion:nil];
         }
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
