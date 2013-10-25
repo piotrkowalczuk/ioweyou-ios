@@ -12,7 +12,6 @@
     
 }
 
-@property (nonatomic, retain) NSString *summary;
-@property (nonatomic, weak) IBOutlet UIButton *summaryButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *summary;
 
 @end

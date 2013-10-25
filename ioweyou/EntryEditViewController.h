@@ -11,8 +11,7 @@
 @interface EntryEditViewController : UIViewController <UITextViewDelegate>
 
 @property (weak, nonatomic) NSNumber *entryId;
-@property(nonatomic, strong) NSMutableDictionary *entry;
-
+@property (nonatomic, strong) NSMutableDictionary *entry;
 @property (weak, nonatomic) IBOutlet UITextField *name;
 @property (weak, nonatomic) IBOutlet UITextField *value;
 @property (weak, nonatomic) IBOutlet UITextView *description;

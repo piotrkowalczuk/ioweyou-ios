@@ -10,6 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "User.h"
 #import "UserManager.h"
+#import "EntryManager.h"
 #import "IOUAppDelegate.h"
 #import "IOUManager.h"
 #import "IOUFriendCell.h"
@@ -85,7 +86,7 @@
     }
     
     NSDictionary *entry = [self.friends objectAtIndex:cellIndex];
-    NSLog(@"%@", [[selectedCells objectAtIndex:cellIndex] class]);
+
     if ([[selectedCells objectAtIndex:cellIndex] isEqualToNumber:[NSNumber numberWithInt:1]]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     } else {
@@ -130,6 +131,26 @@
     for (int i = 0; i < length; i++) {
         [selectedCells addObject:[[NSNumber alloc] initWithInt:0]];
     }
-
+}
+- (IBAction)saveEntry:(id)sender {
+    EntryManager *entryManager = [[EntryManager alloc]init];
+    NSInteger length = [selectedCells count];
+    NSMutableArray *contractors = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < length; i++) {
+        if ([[selectedCells objectAtIndex:i] isEqualToNumber:[NSNumber numberWithInt:1]]) {
+            [contractors addObject:[self.friends objectAtIndex:i]];
+        }
+    }
+    [self.entry setValue:contractors forKey:@"contractors"];
+    
+    [entryManager createEntry:self.entry success:^(id responseObject) {
+        NSLog(@"%@", responseObject);
+        if([responseObject valueForKey:@"isCreated"]) {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+    } failure:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
 }
 @end

@@ -140,4 +140,38 @@
     }];
 }
 
+- (void)createEntry:(NSDictionary *)entry success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:[userManager getAuth]];
+    [params addEntriesFromDictionary:entry];
+    
+    NSMutableString *createPath = [NSMutableString stringWithString:@"/entry/"];
+    
+    [[IOUManager sharedManager] putPath:createPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        _successHandler = [success copy];
+        _successHandler(responseObject);
+        _successHandler = nil;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        _failureHandler = [failure copy];
+        _failureHandler(error);
+        _failureHandler = nil;
+    }];
+}
+
+- (void)fetchSummaryWithSuccess:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:[userManager getAuth]];    
+    NSMutableString *getPath = [NSMutableString stringWithString:@"/entries/summary"];
+    
+    [[IOUManager sharedManager] getPath:getPath parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        _successHandler = [success copy];
+        _successHandler(responseObject);
+        _successHandler = nil;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        _failureHandler = [failure copy];
+        _failureHandler(error);
+        _failureHandler = nil;
+    }];
+}
+
 @end

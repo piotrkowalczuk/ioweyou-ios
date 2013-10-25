@@ -11,6 +11,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "IOUManager.h"
 #import "UserManager.h"
+#import "EntryManager.h"
 
 @interface MenuViewController ()
 {
@@ -26,7 +27,6 @@
 @implementation MenuViewController
 
 @synthesize summary = _summary;
-@synthesize summaryButton = _summaryButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,19 +48,15 @@
     
     [super viewDidLoad];
     
-    UserManager *userManager = [[UserManager alloc] init];
-    NSDictionary *params = [userManager getAuth];
-    
+    EntryManager *entryManager = [[EntryManager alloc]init];
 
-    [[IOUManager sharedManager] getPath:@"/entries/summary" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.summaryButton.titleLabel.text = [responseObject objectForKey:@"summary"];  
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    [entryManager fetchSummaryWithSuccess:^(id responseObject) {
+        NSLog(@"%@", [responseObject objectForKey:@"summary"]);
+        [self.summary setTitle:[responseObject objectForKey:@"summary"]];
+    } failure:^(NSError *error) {
         NSLog(@"%@", error);
     }];
 }
-
-
-
 
 - (void)didReceiveMemoryWarning
 {

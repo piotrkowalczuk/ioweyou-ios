@@ -77,9 +77,8 @@
     [self.entry setValue:self.description.text forKey:@"description"];
     
     [entryManager modifyEntry:self.entry success:^(id responseObject) {
-        NSLog(@"%@", responseObject);
         if([responseObject valueForKey:@"isModified"]) {
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self.navigationController popToRootViewControllerAnimated:YES];
         }
     } failure:^(NSError *error) {
         NSLog(@"%@", error);

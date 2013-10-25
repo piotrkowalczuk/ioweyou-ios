@@ -61,9 +61,13 @@
     [self.debtor_name setText:[NSString stringWithFormat:@"%@ %@", [self.entry objectForKey:@"debtor_first_name"], [self.entry objectForKey:@"debtor_last_name"]]];
     [self.lender_name setText:[NSString stringWithFormat:@"%@ %@", [self.entry objectForKey:@"lender_first_name"], [self.entry objectForKey:@"lender_last_name"]]];
     [self.value setText:[NSString stringWithFormat:@"%@", [self.entry objectForKey:@"value"]]];
-    [self.status setText: [[self.entry objectForKey:@"status"] stringValue]];
     [self.debtor_avatar setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://graph.facebook.com/%@/picture", [self.entry objectForKey:@"debtor_username"]]]];
     [self.lender_avatar setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://graph.facebook.com/%@/picture", [self.entry objectForKey:@"lender_username"]]]];
+    
+    NSArray *statusList = [[NSArray alloc] initWithObjects:@"Open", @"Accepted", @"Rejected", nil];
+    NSUInteger statusIndex = (NSUInteger)[[self.entry objectForKey:@"status"] integerValue];
+    NSLog(@"%lu", (unsigned long)statusIndex);
+    [self.status setText:[statusList objectAtIndex:statusIndex]];
 }
 
 - (void)updateActionSheetButton {

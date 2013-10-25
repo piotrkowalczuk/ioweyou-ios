@@ -24,7 +24,7 @@
                         <color key="textColor" red="0.16091229839999999" green="0.4431703629" blue="0.67902594800000005" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="default.png" translatesAutoresizingMaskIntoConstraints="NO" id="362">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="fb_blank_profile_square.png" translatesAutoresizingMaskIntoConstraints="NO" id="362">
                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
@@ -42,13 +42,9 @@
                         <color key="textColor" white="0.48040574600000002" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="20zł" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="691">
-                        <rect key="frame" x="188" y="19" width="97" height="21"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="20zł" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="691">
+                        <rect key="frame" x="184" y="19" width="97" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="695"/>
-                            <constraint firstAttribute="width" constant="50" id="717"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -61,8 +57,6 @@
                 <constraint firstItem="341" firstAttribute="leading" secondItem="362" secondAttribute="trailing" constant="8" symbolic="YES" id="LkY-Pq-r5H"/>
                 <constraint firstItem="362" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="LqO-3P-auK"/>
                 <constraint firstItem="362" firstAttribute="top" secondItem="2" secondAttribute="top" id="S03-OU-Qex"/>
-                <constraint firstAttribute="bottom" secondItem="691" secondAttribute="bottom" constant="20" id="dOj-Dt-ygk"/>
-                <constraint firstItem="691" firstAttribute="leading" secondItem="341" secondAttribute="trailing" constant="8" symbolic="YES" id="eBk-JH-okP"/>
                 <constraint firstItem="341" firstAttribute="top" secondItem="2" secondAttribute="top" constant="13" id="hLY-B2-7k3"/>
                 <constraint firstItem="362" firstAttribute="bottom" secondItem="2" secondAttribute="bottom" id="o75-6p-kB8"/>
             </constraints>
@@ -75,6 +69,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="default.png" width="50" height="50"/>
+        <image name="fb_blank_profile_square.png" width="200" height="200"/>
     </resources>
 </document>

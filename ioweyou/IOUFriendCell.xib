@@ -24,7 +24,7 @@
                         <color key="textColor" red="0.16091229839999999" green="0.4431703629" blue="0.67902594800000005" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="default.png" translatesAutoresizingMaskIntoConstraints="NO" id="6">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="fb_blank_profile_square.png" translatesAutoresizingMaskIntoConstraints="NO" id="6">
                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
@@ -47,6 +47,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="default.png" width="50" height="50"/>
+        <image name="fb_blank_profile_square.png" width="200" height="200"/>
     </resources>
 </document>

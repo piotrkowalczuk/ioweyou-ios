@@ -74,38 +74,40 @@
 {
    
     IOUAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    if (appDelegate.session.isOpen) {
-        [self performSegueWithIdentifier:@"loginRedirection" sender:self];
-        
-    } else {
+//    if (appDelegate.session.isOpen) {
+//        [self performSegueWithIdentifier:@"loginRedirection" sender:self];
+//        
+//    } else {
         if (appDelegate.session.state != FBSessionStateCreated) {
             appDelegate.session = [[FBSession alloc] init];
         }
-    
-        [appDelegate.session openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {  
-            
-            [FBSession setActiveSession:appDelegate.session];
-            [[FBRequest requestForMe] startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
-                if (!error) {
+        NSLog(@"1");
+        [appDelegate.session openWithCompletionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+            if (error) {
+                NSLog(@"2");
+                NSLog(@"%@", error);
+            } else {
+                NSLog(@"3");
+                [FBSession setActiveSession:appDelegate.session];
+                [[FBRequest requestForMe] startWithCompletionHandler: ^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
+                    if (!error) {
                     
-                    NSString *facebookToken = [[[FBSession activeSession]accessTokenData]accessToken]; 
-                    NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:facebookToken, @"pass", nil];
+                        NSString *facebookToken = [[[FBSession activeSession]accessTokenData]accessToken];
+                        NSDictionary *params = [[NSDictionary alloc] initWithObjectsAndKeys:facebookToken, @"pass", nil];
 
-                    [[IOUManager sharedManager] postPath:@"/login" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-
-                        UserManager *userManager = [[UserManager alloc] init];
-                        [userManager createOrUpdateUserWithUsername:[responseObject valueForKey:@"username"] firstName:[responseObject valueForKey:@"first_name"] lastName: [responseObject valueForKey:@"last_name"] email:[responseObject valueForKey:@"email"] facebookId:[responseObject valueForKey:@"facebookId"] facebookToken:facebookToken ioweyouId:[responseObject valueForKey:@"ioweyouId"] ioweyouToken:[responseObject valueForKey:@"ioweyouToken"]];
-                        
-                        [self performSegueWithIdentifier:@"loginRedirection" sender:self];
-                    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                        NSLog(@"%@", error);
-                    }];
-
-                }
-            }];
+                        [[IOUManager sharedManager] postPath:@"/login" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                            UserManager *userManager = [[UserManager alloc] init];
+                            [userManager createOrUpdateUserWithUsername:[responseObject valueForKey:@"username"] firstName:[responseObject valueForKey:@"first_name"] lastName: [responseObject valueForKey:@"last_name"] email:[responseObject valueForKey:@"email"] facebookId:[responseObject valueForKey:@"facebookId"] facebookToken:facebookToken ioweyouId:[responseObject valueForKey:@"ioweyouId"] ioweyouToken:[responseObject valueForKey:@"ioweyouToken"]];
+                            [self performSegueWithIdentifier:@"loginRedirection" sender:self];
+                        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                            NSLog(@"%@", error);
+                        }];
+                    }
+                }];
+            }
         }];
         
-    }
+//    }
 }
 
 @end

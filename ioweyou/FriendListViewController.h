@@ -14,4 +14,6 @@
 @property (nonatomic, retain) NSMutableArray *friends;
 @property (nonatomic, strong) NSMutableDictionary *entry;
 
+- (IBAction)saveEntry:(id)sender;
+
 @end

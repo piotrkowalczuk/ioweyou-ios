@@ -46,7 +46,7 @@
     static dispatch_once_t pred;
     static IOUManager *_sharedManager = nil;
     
-    dispatch_once(&pred, ^{ _sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://localhost:8000"]]; });
+    dispatch_once(&pred, ^{ _sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.0.103:8000"]]; });
     return _sharedManager;
 }
 
