@@ -58,7 +58,6 @@
         [self populateEntry];
         FriendListViewController *controller = (FriendListViewController *)segue.destinationViewController;
         [controller setEntry:self.entry];
-        NSLog(@"prepareForSegue: %@", self.entry);
     }
 }
 
@@ -67,7 +66,7 @@
 {
     NSNumber *segmentIndex = [NSNumber numberWithInteger:[self.includeMeInput selectedSegmentIndex]];
     NSString *newValue = [[self.valueInput text] stringByReplacingOccurrencesOfString:@"," withString:@"."];
-    NSLog(@"%@", newValue);
+
     [self.entry setValue:[self.nameInput text] forKey:@"name"];
     [self.entry setValue:newValue forKey:@"value"];
     [self.entry setValue:[self.descriptionInput text] forKey:@"description"];

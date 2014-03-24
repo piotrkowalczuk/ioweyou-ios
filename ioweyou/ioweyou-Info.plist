@@ -35,16 +35,18 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb108723412644911</string>
+				<string>fb463819553672810</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>FacebookAppID</key>
-	<string>108723412644911</string>
+	<string>463819553672810</string>
 	<key>FacebookDisplayName</key>
 	<string>I Owe YOU!</string>
 	<key>LSApplicationCategoryType</key>

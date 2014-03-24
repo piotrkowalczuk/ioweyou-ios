@@ -21,7 +21,7 @@
 - (User *) fetchUser;
 
 
-- (NSDictionary *) getAuth;
+- (NSString *) getIOUToken;
 
 
 @end

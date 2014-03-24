@@ -7,6 +7,7 @@
 //
 
 #import "IOUManager.h"
+#import "UserManager.h"
 #import "AFNetworking/AFJSONRequestOperation.h"
 #import "AFNetworking/AFNetworkActivityIndicatorManager.h"
 
@@ -20,6 +21,10 @@
     [self setAuthorizationHeaderWithToken:authToken];
 }
 
+- (void)setAuthorizationHeaderWithToken:(NSString *)token {
+    [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"%@", token]];
+}
+
 #pragma mark - Initialiation
 
 - (id)initWithBaseURL:(NSURL *)url
@@ -30,9 +35,13 @@
         return nil;
     }
     
+
+    UserManager *userManager = [[UserManager alloc] init];
+
     [self registerHTTPOperationClass:[AFJSONRequestOperation class]];
     [self setDefaultHeader:@"Accept" value:@"application/json"];
     [self setParameterEncoding:AFJSONParameterEncoding];
+    [self setAuthToken:[userManager getIOUToken]];
     
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
@@ -46,7 +55,7 @@
     static dispatch_once_t pred;
     static IOUManager *_sharedManager = nil;
     
-    dispatch_once(&pred, ^{ _sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.0.103:8000"]]; });
+    dispatch_once(&pred, ^{ _sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://api.ioweyou.pl"]]; });
     return _sharedManager;
 }
 

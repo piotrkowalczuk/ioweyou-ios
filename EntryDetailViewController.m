@@ -55,9 +55,10 @@
 }
 
 - (void)populateUI {
-    
     [self setTitle:[self.entry objectForKey:@"name"]];
-    [self.description setText:[self.entry objectForKey:@"description"]];
+    if (![[self.entry objectForKey:@"description"] isKindOfClass:[NSNull class]]) {
+        [self.description setText:[self.entry objectForKey:@"description"]];
+    }
     [self.debtor_name setText:[NSString stringWithFormat:@"%@ %@", [self.entry objectForKey:@"debtor_first_name"], [self.entry objectForKey:@"debtor_last_name"]]];
     [self.lender_name setText:[NSString stringWithFormat:@"%@ %@", [self.entry objectForKey:@"lender_first_name"], [self.entry objectForKey:@"lender_last_name"]]];
     [self.value setText:[NSString stringWithFormat:@"%@", [self.entry objectForKey:@"value"]]];
@@ -66,7 +67,7 @@
     
     NSArray *statusList = [[NSArray alloc] initWithObjects:@"Open", @"Accepted", @"Rejected", nil];
     NSUInteger statusIndex = (NSUInteger)[[self.entry objectForKey:@"status"] integerValue];
-    NSLog(@"%lu", (unsigned long)statusIndex);
+
     [self.status setText:[statusList objectAtIndex:statusIndex]];
 }
 

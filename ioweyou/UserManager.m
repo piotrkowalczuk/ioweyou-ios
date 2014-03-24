@@ -101,14 +101,13 @@
 }
 
 
-- (NSDictionary *) getAuth
+- (NSString *) getIOUToken
 {
 
     User *user = [self fetchUser];
     
     if(user) {
-        NSDictionary *params = @{@"uid" : [user ioweyouId], @"apiToken" : [user ioweyouToken]};
-        return params;
+        return [user ioweyouToken];
     }
     
     return NULL;

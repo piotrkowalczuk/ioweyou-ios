@@ -50,9 +50,9 @@
     
     UserManager *userManager = [[UserManager alloc] init];
     user = [userManager fetchUser];
-    NSDictionary *params = [userManager getAuth];
+    NSDictionary *params = [NSDictionary dictionary];
     
-    [[IOUManager sharedManager] getPath:@"/friends" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[IOUManager sharedManager] getPath:@"/user/friends" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self setFriends:responseObject];
         [self initSelectedCellsMutableArray];
         [self.tableView reloadData];
@@ -139,13 +139,13 @@
     
     for (int i = 0; i < length; i++) {
         if ([[selectedCells objectAtIndex:i] isEqualToNumber:[NSNumber numberWithInt:1]]) {
-            [contractors addObject:[self.friends objectAtIndex:i]];
+            [contractors addObject:[[self.friends objectAtIndex:i] valueForKey:@"id"]];
         }
     }
+
     [self.entry setValue:contractors forKey:@"contractors"];
     
     [entryManager createEntry:self.entry success:^(id responseObject) {
-        NSLog(@"%@", responseObject);
         if([responseObject valueForKey:@"isCreated"]) {
             [self.navigationController popToRootViewControllerAnimated:YES];
         }

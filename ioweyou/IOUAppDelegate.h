@@ -18,6 +18,8 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) LoginViewController *viewController;
+@property (strong, nonatomic) NSString *deviceToken;
+
 // FBSample logic
 // In this sample the app delegate maintains a property for the current
 // active session, and the view controllers reference the session via

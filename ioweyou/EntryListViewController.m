@@ -34,6 +34,12 @@
     [self.tableView setDataSource:self];
     self.tableView.delegate = self;
     
+    [self.refreshControl
+     addTarget:self
+     action:@selector(refreshView:)
+     forControlEvents:UIControlEventValueChanged
+     ];
+    
     IOUAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     context = [appDelegate managedObjectContext];
     
@@ -48,6 +54,24 @@
     } failure:^(NSError *error) {
         NSLog(@"%@", error);
     }];
+}
+
+-(void)refreshView:(UIRefreshControl *)refresh {
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Updating..."];
+    
+    EntryManager *entryManager = [[EntryManager alloc]init];
+    [entryManager fetchAllsuccess:^(id responseObject) {
+        self.results = responseObject;
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"MMM d, h:mm a"];
+    NSString *updated = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
+    refresh.attributedTitle = [[NSAttributedString alloc] initWithString:updated];
+    [refresh endRefreshing];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(NSIndexPath *)indexPath {
@@ -97,15 +121,10 @@
 
 - (void)populateTableCell:(IOUEntryCell *)cell with:(NSDictionary *)entry
 {
-    NSString *firstName = [entry objectForKey:@"debtor_first_name"];
-    NSString *lastName = [entry objectForKey:@"debtor_last_name"];
-    NSString *username = [entry objectForKey:@"debtor_username"];
     NSString *name = [entry objectForKey:@"name"];
-    NSString *date = [entry objectForKey:@"created_at"];
     NSString *value = [entry objectForKey:@"value"];
 
     cell.firstLine.text = name;
-    cell.thirdLine.text = date;
     cell.rightLine.text = value;
     
     UIColor *valueColor;
@@ -118,10 +137,6 @@
     }
     
     cell.rightLine.textColor = valueColor;
-    
-    cell.secondLine.text = [NSString stringWithFormat:@"%@ %@", firstName, lastName];
-    [cell.image setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://graph.facebook.com/%@/picture", username]]];
-
 }
 
 - (void)scrollViewDidScroll: (UIScrollView *)scroll {
@@ -133,11 +148,6 @@
     if (maximumOffset - currentOffset <= 10.0) {
         
     }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 60;
 }
 
 

@@ -11,9 +11,6 @@
 @implementation IOUEntryCell
 
 @synthesize firstLine = _firstLine;
-@synthesize image = _image;
-@synthesize secondLine = _secondLine;
-@synthesize thirdLine = _thirdLine;
 @synthesize rightLine = _rightLine;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

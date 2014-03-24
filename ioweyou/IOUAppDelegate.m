@@ -8,6 +8,10 @@
 
 #import "IOUAppDelegate.h"
 #import "LoginViewController.h"
+#import "UserClientManager.h"
+#import "UserManager.h"
+#import "EntryDetailViewController.h"
+
 
 @implementation IOUAppDelegate
 
@@ -17,13 +21,60 @@
 @synthesize window = _window;
 @synthesize viewController = _viewController;
 @synthesize session = _session;
+@synthesize deviceToken = _deviceToken;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [FBLoginView class];
+
+	// Let the device know we want to receive push notifications
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
+    if (launchOptions != nil) {
+        // Launched from push notification
+        NSDictionary *notification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    }
     return YES;
 }
-							
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    NSString* deviceTokenString = [[[deviceToken description]
+                                    stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]]
+                                   stringByReplacingOccurrencesOfString:@" "
+                                   withString:@""];
+    
+    NSDictionary *userClient = [[NSDictionary alloc] initWithObjectsAndKeys: @"ios", @"name", deviceTokenString, @"token", nil];
+    
+    UserClientManager *userClientManager = [[UserClientManager alloc] init];
+    [userClientManager createOrUpdateWithUserClient:userClient success:^(id responseObject) {
+    } failure:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+    self.deviceToken = deviceTokenString;
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)notification
+{
+    if([notification valueForKey:@"entryId"]) {
+        
+        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle: nil];
+        EntryDetailViewController *entryDetailViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"entryDetailsView"];
+        
+        NSNumber *number = [[NSNumber alloc]initWithInt:1];
+        entryDetailViewController.entryId = number;
+        
+        [navigationController pushViewController:entryDetailViewController animated:YES];
+    }
+  ;
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+	NSLog(@"Failed to get token, error: %@", error);
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
