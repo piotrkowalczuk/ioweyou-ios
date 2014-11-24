@@ -55,7 +55,7 @@
     static dispatch_once_t pred;
     static IOUManager *_sharedManager = nil;
     
-    dispatch_once(&pred, ^{ _sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://192.168.1.65:8080"]]; });
+    dispatch_once(&pred, ^{ _sharedManager = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"http://api.ioweyou.pl"]]; });
     return _sharedManager;
 }
 
