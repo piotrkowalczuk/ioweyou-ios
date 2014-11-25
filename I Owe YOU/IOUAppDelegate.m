@@ -26,13 +26,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [FBLoginView class];
-
-	// Let the device know we want to receive push notifications
+    
+    // Let the device know we want to receive push notifications
     if ([application respondsToSelector:@selector(registerUserNotificationSettings:)]) {
         UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:(UIRemoteNotificationTypeBadge
                                                                                              |UIRemoteNotificationTypeSound
                                                                                              |UIRemoteNotificationTypeAlert) categories:nil];
-       [application registerUserNotificationSettings:settings];
+        [application registerUserNotificationSettings:settings];
+        [application registerForRemoteNotifications];
     } else {
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     }
@@ -83,12 +84,12 @@
         
         [navigationController pushViewController:entryDetailViewController animated:YES];
     }
-  ;
+    ;
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
-	NSLog(@"Failed to get token, error: %@", error);
+    NSLog(@"Failed to get token, error: %@", error);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -99,7 +100,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 

@@ -42,7 +42,6 @@
 		39A7C4261A21F714004AF896 /* EntryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A7C41B1A21F714004AF896 /* EntryListViewController.m */; };
 		39A7C4271A21F714004AF896 /* EntryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A7C41D1A21F714004AF896 /* EntryManager.m */; };
 		39A7C4281A21F714004AF896 /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39A7C41F1A21F714004AF896 /* FriendListViewController.m */; };
-		39A7C4291A21F714004AF896 /* I Owe YOU-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39A7C4201A21F714004AF896 /* I Owe YOU-Info.plist */; };
 		39A7C4331A22054A004AF896 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39A7C42F1A22054A004AF896 /* InfoPlist.strings */; };
 		39A7C4341A22054A004AF896 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39A7C4311A22054A004AF896 /* MainStoryboard.storyboard */; };
 		39A7C4381A22496A004AF896 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39A7C4371A22496A004AF896 /* Images.xcassets */; };
@@ -352,7 +351,6 @@
 				39A7C4341A22054A004AF896 /* MainStoryboard.storyboard in Resources */,
 				39A7C3E61A21F603004AF896 /* fb_blank_profile_square.png in Resources */,
 				39A7C4331A22054A004AF896 /* InfoPlist.strings in Resources */,
-				39A7C4291A21F714004AF896 /* I Owe YOU-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,7 +504,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/../../../Documents/FacebookSDK\\\"",
 					/Users/piotrkowalczuk/Documents/FacebookSDK,
 					"/Users/piotrkowalczuk/Projekty/Prywatne/objective-c/ioweyou",
 					"$(PROJECT_DIR)",
@@ -533,7 +530,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/../../../Documents/FacebookSDK\\\"",
 					/Users/piotrkowalczuk/Documents/FacebookSDK,
 					"/Users/piotrkowalczuk/Projekty/Prywatne/objective-c/ioweyou",
 					"$(PROJECT_DIR)",

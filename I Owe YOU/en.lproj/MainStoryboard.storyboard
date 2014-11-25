@@ -217,19 +217,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="description" id="pfx-qh-R07">
-                                <rect key="frame" x="20" y="244" width="280" height="148"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textView>
                             <view contentMode="scaleToFill" id="szT-OM-H1a">
                                 <rect key="frame" x="20" y="20" width="280" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -242,7 +229,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="RwQ-Vk-4Xs">
-                                        <rect key="frame" x="2" y="2" width="60" height="60"/>
+                                        <rect key="frame" x="1" y="1" width="62" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -270,8 +257,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Ych-g0-ki8">
-                                        <rect key="frame" x="217" y="2" width="60" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <rect key="frame" x="217" y="1" width="62" height="62"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="2"/>
@@ -323,6 +310,19 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="pfx-qh-R07">
+                                <rect key="frame" x="20" y="244" width="280" height="148"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.90435082872928174" green="0.90435082872928174" blue="0.90435082872928174" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -340,7 +340,7 @@
                         <outlet property="actionSheetButton" destination="Wkq-6N-Eg5" id="v6q-Mu-8ee"/>
                         <outlet property="debtor_avatar" destination="RwQ-Vk-4Xs" id="BjQ-oz-vvU"/>
                         <outlet property="debtor_name" destination="cVs-Ze-0j1" id="fCq-bj-TO7"/>
-                        <outlet property="description" destination="pfx-qh-R07" id="zLb-l9-cuJ"/>
+                        <outlet property="desc" destination="pfx-qh-R07" id="mmP-OL-Ahb"/>
                         <outlet property="lender_avatar" destination="Ych-g0-ki8" id="5R9-1C-ckT"/>
                         <outlet property="lender_name" destination="Shz-vq-zOO" id="EKx-BS-YuU"/>
                         <outlet property="status" destination="iRd-Em-YmL" id="qgo-IR-O9z"/>
@@ -352,7 +352,7 @@
             </objects>
             <point key="canvasLocation" x="15" y="-732"/>
         </scene>
-        <!--Title-->
+        <!--Edit Entry-->
         <scene sceneID="yfq-Gd-3d6">
             <objects>
                 <viewController storyboardIdentifier="EntryEditView" id="QHT-SP-Wcv" customClass="EntryEditViewController" sceneMemberID="viewController">
@@ -377,16 +377,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="QHT-SP-Wcv" id="Bjl-fY-Fh3"/>
-                                </connections>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes" keyboardAppearance="alert" returnKeyType="done"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="Sd2-NH-1Tv">
+                    <navigationItem key="navigationItem" title="Edit Entry" id="Sd2-NH-1Tv">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="kX5-5d-5Nh">
                             <connections>
                                 <action selector="saveEntry:" destination="QHT-SP-Wcv" id="2LJ-4M-2ju"/>
@@ -395,7 +392,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="description" destination="DrN-0P-mQa" id="09i-mW-0bC"/>
+                        <outlet property="desc" destination="DrN-0P-mQa" id="fL9-VU-shF"/>
                         <outlet property="name" destination="TCF-Gd-tIM" id="DHs-LA-Q0c"/>
                         <outlet property="value" destination="p7Q-8g-nfg" id="nH7-hI-UcB"/>
                     </connections>

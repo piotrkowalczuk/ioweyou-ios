@@ -24,7 +24,7 @@
 @synthesize entry = _entry;
 @synthesize name = _name;
 @synthesize value = _value;
-@synthesize description = _description;
+@synthesize desc = _desc;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -50,9 +50,12 @@
 }
 
 - (void)populateUI {
+    NSLog(@"%@", self.desc);
 	[self.name setText:[self.entry valueForKey:@"name"]];
     [self.value setText:[self.entry valueForKey:@"value"]];
-//    [self.description setText:[self.entry valueForKey:@"description"]];
+    if (![[self.entry objectForKey:@"description"] isKindOfClass:[NSNull class]]) {
+        [self.desc setText:[self.entry objectForKey:@"description"]];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -75,7 +78,7 @@
     
     [self.entry setValue:self.name.text forKey:@"name"];
     [self.entry setValue:self.value.text forKey:@"value"];
-//    [self.entry setValue:self.description.text forKey:@"description"];
+    [self.entry setValue:self.desc.text forKey:@"description"];
     
     [entryManager modifyEntry:self.entry success:^(id responseObject) {
         if([responseObject valueForKey:@"isModified"]) {

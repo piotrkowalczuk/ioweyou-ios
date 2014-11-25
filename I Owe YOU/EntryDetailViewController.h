@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) NSNumber *entryId;
 @property (nonatomic, strong) NSMutableDictionary *entry;
-@property (weak, nonatomic) IBOutlet UITextView *description;
+@property (weak, nonatomic) IBOutlet UITextView *desc;
 @property (weak, nonatomic) IBOutlet UILabel *debtor_name;
 @property (weak, nonatomic) IBOutlet UILabel *lender_name;
 @property (weak, nonatomic) IBOutlet UIImageView *debtor_avatar;

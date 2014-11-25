@@ -8,6 +8,7 @@
 
 #import "EntryDetailViewController.h"
 #import <AFNetworking/AFNetworking.h>
+#import <QuartzCore/QuartzCore.h>
 #import "User.h"
 #import "UserManager.h"
 #import "IOUAppDelegate.h"
@@ -24,7 +25,7 @@
 
 @implementation EntryDetailViewController
 
-@synthesize description = _description;
+@synthesize desc = _desc;
 @synthesize actionSheet = _actionSheet;
 @synthesize actionSheetButton = _actionSheetButton;
 
@@ -57,13 +58,17 @@
 - (void)populateUI {
     [self setTitle:[self.entry objectForKey:@"name"]];
     if (![[self.entry objectForKey:@"description"] isKindOfClass:[NSNull class]]) {
-        [self.description setText:[self.entry objectForKey:@"description"]];
+        [self.desc setText:[self.entry objectForKey:@"description"]];
     }
     [self.debtor_name setText:[NSString stringWithFormat:@"%@ %@", [self.entry objectForKey:@"debtor_first_name"], [self.entry objectForKey:@"debtor_last_name"]]];
     [self.lender_name setText:[NSString stringWithFormat:@"%@ %@", [self.entry objectForKey:@"lender_first_name"], [self.entry objectForKey:@"lender_last_name"]]];
     [self.value setText:[NSString stringWithFormat:@"%@", [self.entry objectForKey:@"value"]]];
     [self.debtor_avatar setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://graph.facebook.com/%@/picture", [self.entry objectForKey:@"debtor_username"]]]];
+    self.debtor_avatar.layer.cornerRadius = 3;
+    self.debtor_avatar.clipsToBounds = YES;
     [self.lender_avatar setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://graph.facebook.com/%@/picture", [self.entry objectForKey:@"lender_username"]]]];
+    self.lender_avatar.layer.cornerRadius = 3;
+    self.lender_avatar.clipsToBounds = YES;
     
     NSArray *statusList = [[NSArray alloc] initWithObjects:@"Open", @"Accepted", @"Rejected", nil];
     NSUInteger statusIndex = (NSUInteger)[[self.entry objectForKey:@"status"] integerValue];
